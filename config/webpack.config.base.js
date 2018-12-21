@@ -1,20 +1,21 @@
 const path = require('path');
+const { getAllUIComponents } = require('./utils');
 
 const scope = {
   include: [
-    path.resolve(__dirname, '../src'),
+    path.resolve('src'),
   ],
   exclude: [
-    path.resolve(__dirname, 'node_modules'),
+    path.resolve('node_modules'),
   ],
 };
 
 module.exports = {
-  mode: 'development',
-  entry: path.join(__dirname, 'src', 'index'),
+  // entry: getAllUIComponents(),
+  entry: 'src/index',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'lib'),
+    filename: '[name].js',
+    path: path.resolve('lib'),
   },
   module: {
     rules: [
@@ -78,15 +79,5 @@ module.exports = {
   },
   resolve: {
     extensions: ['ts', 'tsx', 'json', 'css', 'less']
-  },
-  plugins: [
-
-  ],
-  node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
   },
 };
