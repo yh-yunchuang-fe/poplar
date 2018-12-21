@@ -11,8 +11,7 @@ const scope = {
 };
 
 module.exports = {
-  // entry: getAllUIComponents(),
-  entry: 'src/index',
+  entry: getAllUIComponents(),
   output: {
     filename: '[name].js',
     path: path.resolve('lib'),

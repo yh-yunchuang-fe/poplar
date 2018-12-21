@@ -3,12 +3,17 @@ const fs = require('fs');
 
 const getAllUIComponents = () => {
   const files = fs.readdirSync(path.resolve('lib'));
-  return files.map((item) => {
-    const stat = fs.lstatSync(path.resolve('lib', item));
+  return files.reduce((accum, current) => {
+    const stat = fs.lstatSync(path.resolve('lib', current));
     if (stat.isDirectory()) {
-      return path.resolve('lib', item, 'index');
-   }
-  });
+      const absolutePath = path.resolve('lib', current, 'index');
+      return {
+        ...accum,
+        [current]: absolutePath,
+      };
+    }
+    return accum;
+  }, {});
 };
 
 module.exports = {
