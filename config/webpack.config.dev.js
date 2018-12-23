@@ -10,14 +10,14 @@ module.exports = merge(baseConfig, {
     port: 3000,
     host: '0.0.0.0',
     disableHostCheck: true,
-    contentBase: path.resolve('example/dist'),
+    contentBase: path.resolve('examples'),
     open: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
       title: 'poplar',
-      template: path.resolve('example/index.html'),
+      template: path.resolve('index.html'),
     }),
   ],
 });
