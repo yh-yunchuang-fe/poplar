@@ -1,6 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseConfig = require('./webpack.config.base');
 
 module.exports = merge(baseConfig, {
@@ -8,7 +9,7 @@ module.exports = merge(baseConfig, {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve('../example/index.html'),
+      template: path.resolve('example/index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -21,6 +22,9 @@ module.exports = merge(baseConfig, {
         minifyCSS: true,
         minifyURLs: true,
       },
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash:8].css',
     }),
   ],
 });

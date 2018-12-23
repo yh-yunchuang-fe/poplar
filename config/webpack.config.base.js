@@ -1,9 +1,8 @@
 const path = require('path');
-const { getAllUIComponents } = require('./utils');
 
 const scope = {
   include: [
-    path.resolve('src'),
+    path.resolve('example/src'),
   ],
   exclude: [
     path.resolve('node_modules'),
@@ -11,21 +10,22 @@ const scope = {
 };
 
 module.exports = {
-  entry: getAllUIComponents(),
+  entry: path.resolve('example/src/index.ts'),
   output: {
-    filename: '[name].js',
-    path: path.resolve('lib'),
+    filename: 'bundle.js',
+    path: path.resolve('example/dist'),
   },
   module: {
     rules: [
       {
         test: /\.tsx?/,
         enforce: 'pre',
-        use: [
-          {
-            loader: require.resolve('tslint-loader'),
-          },
-        ],
+        loader: require.resolve('tslint-loader'),
+      },
+      {
+        test: [/\.css/, /\.less/],
+        enforce: 'pre',
+        loader: require.resolve('typed-css-modules-loader'),
       },
       {
         oneOf: [
@@ -35,23 +35,42 @@ module.exports = {
             ...scope,
           },
           {
+            // babel-loader转义node_mdoules, 来修复html-webpack-plugin报错
+            test: /\.jsx?$/,
+            loader: require.resolve('babel-loader'),
+            include: [
+              path.resolve('node_modules'),
+            ],
+          },
+          {
             test: [/\.less/, /\.css/],
             use: [
-              {
-                loader: require.resolve('style-loader'),
-              },
+              require.resolve('style-loader'),
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  module: true,
+                  modules: true,
                 },
               },
               {
-                loader: require.resolve('less-loader'),
+                loader: 'px2rem-loader',
+                options: {
+                  remUni: 75,
+                  remPrecision: 8,
+                },
               },
               {
-                loader: require.resolve('postcss-loader'),
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  sourceMap: true,
+                  plugins: [
+                    require('postcss-flexbugs-fixes'),
+                    require('autoprefixer'),
+                  ],
+                },
               },
+              require.resolve('less-loader'),
             ],
             ...scope,
           },
@@ -60,16 +79,15 @@ module.exports = {
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
-              name: 'lib/assets/[name].[hash:8].[ext]',
+              name: 'example/dist/assets/[name].[hash:8].[ext]',
             },
             ...scope,
           },
           {
-            // TODO: 待定exclude 'ts|tsx'
             exclude: [/\.html$/, /\.json$/, /\.(ts|tsx)$/],
             loader: require.resolve('file-loader'),
             options: {
-              name: 'lib/assets/[name].[hash:8].[ext]',
+              name: 'example/dist/assets/[name].[hash:8].[ext]',
             },
           },
         ],
@@ -77,6 +95,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['ts', 'tsx', 'json', 'css', 'less']
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.less']
   },
 };
