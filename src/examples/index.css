@@ -8,6 +8,16 @@ body {
   flex: 1;
   height: 100%;
   display: flex;
+  background-color: #f0f1f4;
+}
+
+dl, dt, dd, ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
 }
 
 #app {

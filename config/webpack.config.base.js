@@ -14,26 +14,12 @@ const cssLoaders = {
   use: [
     require.resolve('style-loader'),
     require.resolve('css-loader'),
-    {
-      loader: 'px2rem-loader',
-      options: {
-        remUni: 75,
-        remPrecision: 8,
-      },
-    },
-    {
-      loader: 'postcss-loader',
-      options: {
-        ident: 'postcss',
-        sourceMap: true,
-        plugins: [
-          require('postcss-flexbugs-fixes'),
-          require('autoprefixer'),
-        ],
-      },
-    },
+    require.resolve('postcss-loader'),
   ],
-  ...scope,
+  include: [
+    path.resolve('src'),
+    path.resolve('node_modules'),
+  ],
 };
 
 const lessLoaders = {
@@ -46,24 +32,7 @@ const lessLoaders = {
         modules: true,
       },
     },
-    {
-      loader: 'px2rem-loader',
-      options: {
-        remUni: 37.5,
-        remPrecision: 8,
-      },
-    },
-    {
-      loader: 'postcss-loader',
-      options: {
-        ident: 'postcss',
-        sourceMap: true,
-        plugins: [
-          require('postcss-flexbugs-fixes'),
-          require('autoprefixer'),
-        ],
-      },
-    },
+    require.resolve('postcss-loader'),
     require.resolve('less-loader'),
   ],
   ...scope,
@@ -91,7 +60,10 @@ module.exports = {
         oneOf: [
           {
             test: /\.tsx?$/,
-            loader: require.resolve('awesome-typescript-loader'),
+            use: [
+              require.resolve('babel-loader'),
+              require.resolve('awesome-typescript-loader'),
+            ],
             ...scope,
           },
           {
