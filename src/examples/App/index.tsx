@@ -6,7 +6,7 @@ import {
   withRouter,
 } from "react-router-dom";
 import Button from "../Button";
-import * as styles from "./index.less";
+import "./index.less";
 
 interface IRoute {
   path: string;
@@ -26,7 +26,7 @@ class App extends React.PureComponent<any, any> {
 
   public render() {
     return (
-      <div className={styles.container}>
+      <div className="container">
         {this.renderHeader()}
         {this.renderRoutes()}
       </div>
@@ -40,7 +40,7 @@ class App extends React.PureComponent<any, any> {
   private renderHomeList = () => {
     const demoList = routes.map((route, index) => {
       return (
-        <li className={styles.listItem} key={index}>
+        <li className="list-item" key={index}>
           <Link to={`${route.path}`}>
             {route.name}
           </Link>
@@ -48,7 +48,7 @@ class App extends React.PureComponent<any, any> {
       );
     });
     return (
-      <ul className={styles.demoList}>
+      <ul className="demo-list">
         {demoList}
       </ul>
     );
@@ -59,17 +59,17 @@ class App extends React.PureComponent<any, any> {
     const demoName = pathname.split("/")[1];
     if (demoName) {
       return (
-        <div className={styles.demoHeader}>
+        <div className="demo-header">
           <h1 onClick={this.backHome}>Home</h1>
-          <span className={styles.separate}>|</span>
+          <span className="separate">|</span>
           <h2>{demoName}</h2>
         </div>
       );
     }
     return (
-      <div className={styles.demoHeader}>
+      <div className="demo-header">
         <h1>Home</h1>
-        <span className={styles.separate}>|</span>
+        <span className="separate">|</span>
         <span>Poplar-基于React的移动端组件库</span>
       </div>
     );

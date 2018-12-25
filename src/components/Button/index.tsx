@@ -1,8 +1,8 @@
 import * as React from "react";
-import * as styles from "./styles.less";
+import "./index.less";
 
 export default class Button extends React.Component<any, any> {
   public render() {
-    return <div className={styles.container}>hello, world</div>;
+    return <div className="container">hello, world</div>;
   }
 }
