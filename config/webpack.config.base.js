@@ -51,11 +51,11 @@ module.exports = {
         enforce: 'pre',
         loader: require.resolve('tslint-loader'),
       },
-      {
-        test: [/\.css$/, /\.less$/],
-        enforce: 'pre',
-        loader: require.resolve('typed-css-modules-loader'),
-      },
+      // {
+      //   test: [/\.css$/, /\.less$/],
+      //   enforce: 'pre',
+      //   loader: require.resolve('typed-css-modules-loader'),
+      // },
       {
         oneOf: [
           {
