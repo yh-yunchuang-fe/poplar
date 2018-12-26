@@ -11,7 +11,11 @@ gulp.task('lib:ts', () => {
   return gulp.src('../src/components/**/*.tsx')
     .pipe(tsProject())
     .js
-    .pipe(babel(babelrc))
+    .pipe(babel(babelrc.concat([
+      ["module-extension", {
+        "less": "css"
+      }],
+    ])))
     .pipe(gulp.dest(('../lib')));
 });
 
@@ -26,3 +30,7 @@ gulp.task('default', gulp.series(['lib:ts', 'lib:style'], (done) => {
   console.log('build lib success!!');
   done();
 }));
+
+gulp.task('watch', () => {
+  gulp.watch('src', ['lib:ts', 'lib:style']);
+});
