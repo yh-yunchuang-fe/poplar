@@ -6,10 +6,11 @@ const baseConfig = require('./webpack.config.base');
 
 module.exports = merge(baseConfig, {
   mode: 'production',
+  entry: path.resolve(__dirname, '../src/examples/index.tsx'),
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve('example/index.html'),
+      template: path.resolve(__dirname, '../index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,

@@ -1,10 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve('src/examples/index.tsx'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve('examples'),
+    path: path.resolve(__dirname, '../examples'),
   },
   module: {
     rules: [
@@ -22,7 +21,7 @@ module.exports = {
               require.resolve('awesome-typescript-loader'),
             ],
             include: [
-              path.resolve('src'),
+              path.resolve(__dirname, '../src'),
             ],
           },
           {
@@ -39,7 +38,7 @@ module.exports = {
               require.resolve('less-loader'),
             ],
             include: [
-              path.resolve('src'),
+              path.resolve(__dirname, '../src'),
             ],
           },
           {

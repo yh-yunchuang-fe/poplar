@@ -6,5 +6,9 @@
     "jsx": "react",
     "allowJs": false,
     "moduleResolution": "node"
-  }
+  },
+  "include": [
+    "src/examples/**/*.tsx",
+    "src/examples/**/*.ts"
+  ]
 }
