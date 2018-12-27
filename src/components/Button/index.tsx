@@ -1,21 +1,24 @@
+import "./index.less";
+
 import ButtonProps from "./propsType";
 
 import classNames from "classnames";
 import * as React from "react";
 
-import './index.less';
-
 export default class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
     // activeStyle: {},
+    circle: false,
     className: "",
     disabled: false,
     inline: false,
     // loading: false,
     onClick: (x?: any) => {},
+    plain: false,
     prefixCls: "yh-button",
     // onPressIn: (x?: any) => {},
     // onPressOut: (x?: any) => {},
+    round: true,
     size: "default",
     style: {},
     // textStyle: {},
@@ -31,20 +34,21 @@ export default class Button extends React.Component<ButtonProps, any> {
   public render() {
     const {
       children, prefixCls, className, type, size, inline, plain, round,
-      disabled, onClick, ...restProps
+      disabled, onClick, circle, ...restProps
     } = this.props;
     const wrapCls = {
-      [className]: className,
       [prefixCls]: true,
       [`${prefixCls}-primary`]: type === "primary",
       [`${prefixCls}-plain`]: plain,
       [`${prefixCls}-round`]: round,
-      [`${prefixCls}-warning`]: type === "warning",
-      [`${prefixCls}-small`]: size === "small",
-      [`${prefixCls}-mini`]: size === "mini",
-      [`${prefixCls}-large`]: size === "large",
+      // [`${prefixCls}-warning`]: type === "warning",
+      [`${prefixCls}-sm`]: size === "sm",
+      [`${prefixCls}-xs`]: size === "xs",
+      [`${prefixCls}-circle`]: circle,
+      [`${prefixCls}-lg`]: size === "lg",
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
+      [className]: className,
     };
     return (
       <a
@@ -61,17 +65,5 @@ export default class Button extends React.Component<ButtonProps, any> {
       </a>
   );
   }
-  // private onPressIn = (...args: any[]) => {
-  //   this.setState({pressIn: true});
-  //   if (this.props.onPressIn) {
-  //       (this.props.onPressIn as any)(...args);
-  //   }
-  // }
-  // private onPressOut = (...args: any[]) => {
-  //   this.setState({pressIn: false});
-  //   if (this.props.onPressOut) {
-  //       (this.props.onPressOut as any)(...args);
-  //   }
-  // }
 
 }

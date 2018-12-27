@@ -1,9 +1,10 @@
 import * as React from "react";
-export default interface buttonProps {
+export default interface ItfButtonProps {
     prefixCls?: string;
     type?: "default" | "primary" | "warning" | "ghost";
-    size?: "default" | "large" | "medium" | "small" | "mini";
+    size?: "default" | "lg" | "md" | "sm" | "xs";
     plain?: boolean;
+    circle?: boolean;
     round?: boolean;
     style?: React.CSSProperties;
     // textStyle?: React.CSSProperties;

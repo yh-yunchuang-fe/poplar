@@ -6,6 +6,7 @@ import {
   withRouter,
 } from "react-router-dom";
 import Button from "../Button";
+import Icon from "../Icon";
 import "./index.less";
 
 interface IRoute {
@@ -14,11 +15,15 @@ interface IRoute {
   name: string;
 }
 
-const routes: [IRoute] = [
+const routes: IRoute[] = [
   {
     component: Button,
     name: "Button",
     path: "/Button",
+  }, {
+    component: Icon,
+    name: "Icon",
+    path: "/Icon",
   },
 ];
 
