@@ -8,7 +8,7 @@ export default interface ItfIconProps {
     prefixCls?: string;
     type?: "default" | "filled" | "outlined";
     disabled?: boolean;
-    onClick?: (x?: any) => {}
+    onClick?: (x?: any) => void;
 }
 export interface ItfType {
     [index: string]: number;

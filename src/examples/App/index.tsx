@@ -1,10 +1,5 @@
 import * as React from "react";
-import {
-  Link,
-  Route,
-  Switch,
-  withRouter,
-} from "react-router-dom";
+import { Link, Route, Switch, withRouter } from "react-router-dom";
 import Button from "../Button";
 import Icon from "../Icon";
 import "./index.less";
@@ -20,7 +15,8 @@ const routes: IRoute[] = [
     component: Button,
     name: "Button",
     path: "/Button",
-  }, {
+  },
+  {
     component: Icon,
     name: "Icon",
     path: "/Icon",
@@ -28,7 +24,6 @@ const routes: IRoute[] = [
 ];
 
 class App extends React.PureComponent<any, any> {
-
   public render() {
     return (
       <div className="container">
@@ -46,17 +41,11 @@ class App extends React.PureComponent<any, any> {
     const demoList = routes.map((route, index) => {
       return (
         <li className="list-item" key={index}>
-          <Link to={`${route.path}`}>
-            {route.name}
-          </Link>
+          <Link to={`${route.path}`}>{route.name}</Link>
         </li>
       );
     });
-    return (
-      <ul className="demo-list">
-        {demoList}
-      </ul>
-    );
+    return <ul className="demo-list">{demoList}</ul>;
   }
 
   private renderHeader() {
@@ -83,7 +72,12 @@ class App extends React.PureComponent<any, any> {
   private renderRoutes = () => {
     const routeList = routes.map((route, index) => {
       return (
-        <Route exact={true} path={route.path} component={route.component} key={index} />
+        <Route
+          exact={true}
+          path={route.path}
+          component={route.component}
+          key={index}
+        />
       );
     });
     return (

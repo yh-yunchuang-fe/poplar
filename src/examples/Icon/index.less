@@ -1,10 +1,31 @@
-.example-Icon{
-  margin: 10px;
-}
 .customStyle {
-  width: 200px;
-  background-color: lime;
-  font-size: 20px;
-  height: 40px;
-  line-height: 40px;
+    width: 200px;
+    background-color: lime;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+.example-Icon {
+  overflow-x: hidden;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 10px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+.item {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.name {
+  margin-top: 10px;
+  text-align: center;
+}
+.copy {
+  position: absolute;
+  left: -1000px;
 }
