@@ -1,0 +1,47 @@
+.@{modalPrefixClass} {
+    .button-common() {
+        box-sizing: border-box;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: @color-link;
+        font-size: @modal-button-font-size;
+        height: @modal-button-height;
+        line-height: @modal-button-height;
+        display: block;
+        .ellipsis()
+    }
+
+    &-button-group-h {
+        border-top: @border-width solid @modal-footer-border-color; /* no */
+        display: flex;
+        .@{modalPrefixClass}-button {
+            -webkit-touch-callout: none;
+            flex: 1;
+            .button-common();
+            //color: @color-text-placeholder;
+            //&:last-child {
+            //    color: @color-text-placeholder;
+            //    border-left: @border-width solid @border-color-base; /* no */
+            //}
+        }
+        .@{modalPrefixClass}-button-first {
+            color: @color-label;
+            border-right: @border-width solid @modal-footer-border-color;
+        }
+    }
+
+    &-button-group-v {
+        .@{modalPrefixClass}-button {
+            -webkit-touch-callout: none;
+            display: block;
+            border-top: @border-width solid @border-color-base; /* no */
+            .button-common();
+        }
+    }
+
+    &-button-active {
+      background-color: @fill-tap;
+    }
+
+}

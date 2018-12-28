@@ -60,9 +60,12 @@
   "dependencies": {
     "@babel/runtime": "^7.2.0",
     "@types/classnames": "^2.2.6",
+    "@types/react-addons-css-transition-group": "^15.0.5",
     "classnames": "^2.2.6",
     "normalize.css": "^8.0.1",
+    "omit.js": "^1.0.0",
     "react": "^16.7.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1"
   },

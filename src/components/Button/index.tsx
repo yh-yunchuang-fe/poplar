@@ -6,7 +6,7 @@ import classNames from "classnames";
 import * as React from "react";
 
 export default class Button extends React.Component<ButtonProps, any> {
-  static defaultProps = {
+    public static defaultProps = {
     // activeStyle: {},
     circle: false,
     className: "",

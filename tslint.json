@@ -1,9 +1,10 @@
 {
-  "extends": [
-      "tslint:latest",
-      "tslint-react"
-  ],
-  "rules": {
-
-  }
+    "defaultSeverity": "none",
+    "extends": [
+        "tslint:latest",
+        "tslint-react"
+    ],
+    "rules": {
+        "semicolon": false
+    }
 }
