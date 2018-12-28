@@ -7,7 +7,7 @@ export default interface ItfCheckProps {
     // type?: "default" | "filled" | "outlined";
     disabled?: boolean;
     onChange?: (x?: any) => void;
-
+    // checked?: boolean;
     icon?: boolean;
     position?: boolean;
     defaultChecked?: boolean;
