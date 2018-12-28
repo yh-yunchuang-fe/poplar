@@ -1,13 +1,15 @@
 {
-  "extends": [
-      "tslint:latest",
-      "tslint-react"
-  ],
-  "rules": {
-    "no-implicit-dependencies": false,
-    "no-submodule-imports": false
-  },
-  "linterOptions": {
-    "exclude": ["lib"]
-  }
+    "extends": [
+        "tslint:latest",
+        "tslint-react"
+    ],
+    "rules": {
+        "no-implicit-dependencies": false,
+        "no-submodule-imports": false
+    },
+    "linterOptions": {
+        "exclude": [
+            "lib"
+        ]
+    }
 }

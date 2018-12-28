@@ -15,62 +15,62 @@ const tsconfig = require('../tsconfig.json').compilerOptions;
 const { HOST, PORT } = require('./constants');
 
 const tsProject = ts.createProject(Object.assign(tsconfig, {
-  declaration: true,
+    declaration: true,
 }));
 
 babelrc.plugins.push(
-  ["module-extension", {
-    "less": "css"
-  }]
+    ["module-extension", {
+        "less": "css"
+    }]
 );
 
 gulp.task('lib:ts', () => {
-  const tsResult = gulp.src(['../src/components/**/*.tsx', '../src/components/**/*.ts'])
-    .pipe(cached('ts'))
-    .pipe(tsProject());
+    const tsResult = gulp.src(['../src/components/**/*.tsx', '../src/components/**/*.ts'])
+        .pipe(cached('ts'))
+        .pipe(tsProject());
 
-  const stream = merge([
-    tsResult.dts,
-    tsResult.js.pipe(babel(babelrc)),
-  ]);
-  return stream.pipe(gulp.dest('../lib'));
+    const stream = merge([
+        tsResult.dts,
+        tsResult.js.pipe(babel(babelrc)),
+    ]);
+    return stream.pipe(gulp.dest('../lib'));
 });
 
 gulp.task('lib:style', () => {
-  return gulp.src(['../src/components/**/*.less', '../src/components/**/*.css'])
-    .pipe(cached('style'))
-    .pipe(less())
-    .pipe(postcss())
-    .pipe(gulp.dest('../lib'));
+    return gulp.src(['../src/components/**/*.less', '../src/components/**/*.css'])
+        .pipe(cached('style'))
+        .pipe(less())
+        .pipe(postcss())
+        .pipe(gulp.dest('../lib'));
 });
 
 gulp.task('lib:build', gulp.series(['lib:ts', 'lib:style']));
 
 gulp.task('webpack-dev-server', () => {
-  const compiler = webpack(webpackDevConfig);
-  new WebpackDevServer(compiler, {
-    disableHostCheck: true,
-    contentBase: path.resolve(__dirname, '../examples'),
-    hot: true,
-    inline: true,
-    stats: { colors: true },
-  }).listen(PORT, HOST, (err) => {
-    if (err) {
-      return console.error(err);
-    }
-    const url = `http://${HOST}:${PORT}`;
-    console.log("\n-------------\n");
-    console.log(`webpack-dev-server is listening on ${url}`);
-    console.log("\n-------------\n");
-    opn(url);
-  });
+    const compiler = webpack(webpackDevConfig);
+    new WebpackDevServer(compiler, {
+        disableHostCheck: true,
+        contentBase: path.resolve(__dirname, '../examples'),
+        hot: true,
+        inline: true,
+        stats: { colors: true },
+    }).listen(PORT, HOST, (err) => {
+        if (err) {
+            return console.error(err);
+        }
+        const url = `http://${HOST}:${PORT}`;
+        console.log("\n-------------\n");
+        console.log(`webpack-dev-server is listening on ${url}`);
+        console.log("\n-------------\n");
+        opn(url);
+    });
 });
 
 gulp.task('watch', gulp.series(['lib:build'], () => {
-  const watcher = gulp.watch('../src/components', gulp.series(['lib:build']));
-  watcher.on('change', (path) => {
-    console.log(`File ${path} was changed, running tasks...`);
-  });
+    const watcher = gulp.watch('../src/components', gulp.series(['lib:build']));
+    watcher.on('change', (path) => {
+        console.log(`File ${path} was changed, running tasks...`);
+    });
 }));
 
 gulp.task('dev', gulp.parallel(['watch', 'webpack-dev-server']));
