@@ -104,5 +104,4 @@ class App extends React.PureComponent<any, any> {
         );
     }
 }
-
 export default withRouter(App);

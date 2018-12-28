@@ -6,8 +6,9 @@ import "normalize.css";
 import '../assets/css/base.less'
 import "./index.less";
 
-ReactDOM.render((
-  <HashRouter>
-    <App />
-  </HashRouter>
-), document.getElementById("app"));
+ReactDOM.render(
+    <HashRouter>
+        <App />
+    </HashRouter>,
+    document.getElementById("app"),
+);

@@ -1,130 +1,127 @@
-
-@import '../../assets/css/default.less';
-@import '../../assets/css/mixins.less';
+@import "../../assets/css/default.less";
+@import "../../assets/css/mixins.less";
+@button-border-color: "#999";
 
 @buttonPrefixCls: yh-button;
 
 .@{buttonPrefixCls} {
-  display: block;
-  outline: 0 none;
-  -webkit-appearance: none;
-  box-sizing: border-box;
-  padding: 0;
-  text-align: center;
-  font-size: @button-font-size;
-  height: @button-height;
-  line-height: @button-line-height;
-  border-radius: @button-radius;
+    display: block;
+    outline: 0 none;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    padding: 0;
+    text-align: center;
+    font-size: @font-size-base-sm;
+    height: @button-height;
+    line-height: @button-line-height;
+    border-radius: @button-radius;
 
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-word;
-  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    white-space: nowrap;
 
-  // default
-  color: @color-text-base;
-  background-color: @fill-base;
-  border: @border-width solid @border-color-base; /*no*/
+    // default
+    color: @color-text-base;
+    background-color: @fill-base;
+    border: @border-width solid @button-border-color; /*no*/
 
-  &:active {
-    box-shadow: 0 2px 5px 2px @border-color-base;
-    transform: translateY(-1px)
-  }
-  &-round {
-    border-radius: @button-round-radius;
-  }
-  &-circle {
-    width:100px;
-    height:100px;
-    line-height: 98px;
-    border-radius: 50%;
-  }
-  &-primary {
-    color: @color-text-base-inverse;
-    background-image: @warning-button-bgi;
-    border:transparent;
-    &.@{buttonPrefixCls}:active {
-      box-shadow: 0 2px 5px 2px @fil-basesecond;
-      transform: translateY(-1px)
+    &:active {
+        box-shadow: 0 2px 5px 2px @button-border-color;
+        transform: translateY(-1px);
     }
-    &.@{buttonPrefixCls}-disabled {
-      color: hsla(0, 0%, 100%, 0.6);
-      opacity: 0.4;
-      &:active {
-        // color: hsla(0, 0%, 100%, 0.6);
-        // background-color: @brand-error;
-        box-shadow: none;
-        transform: none;
-      }
+    &-round {
+        border-radius: @button-round-radius;
     }
-    &.@{buttonPrefixCls}-plain {
-      color: @color-button;
-      background: @fill-base;
-      border: @border-width solid @fil-basefirst;
-      &:active {
-        // color: @color-button;
-        box-shadow: 0 2px 5px 2px @fil-basesecond;
-        transform: translateY(-1px)
-      }
-      &.@{buttonPrefixCls}-disabled {
-        // color: hsla(0, 0%, 100%, 0.6);
+    &-circle {
+        width: 100px;
+        height: 100px;
+        line-height: 98px;
+        border-radius: 50%;
+    }
+    &-primary {
+        color: @color-text-base-inverse;
+        background-color: @fil-basesecond;
+        background-image: @warning-button-bgi;
+        border: none;
+        &.@{buttonPrefixCls}:active {
+            box-shadow: 0px 1px 5px 2px @fil-basesecond;
+            transform: translateY(-1px);
+        }
+        &.@{buttonPrefixCls}-disabled {
+            color: hsla(0, 0%, 100%, 0.6);
+            opacity: 0.4;
+            &:active {
+                // color: hsla(0, 0%, 100%, 0.6);
+                // background-color: @brand-error;
+                box-shadow: none;
+                transform: none;
+            }
+        }
+        &.@{buttonPrefixCls}-plain {
+            color: @color-button;
+            background: @fill-base;
+            border: @border-width solid @fil-basefirst;
+            &:active {
+                // color: @color-button;
+                box-shadow: 0 2px 5px 2px @fil-basesecond;
+                transform: translateY(-1px);
+            }
+            &.@{buttonPrefixCls}-disabled {
+                // color: hsla(0, 0%, 100%, 0.6);
+                opacity: 0.4;
+                &:active {
+                    box-shadow: none;
+                    transform: none;
+                }
+            }
+        }
+    }
+    &-disabled {
         opacity: 0.4;
         &:active {
-          box-shadow: none;
-          transform: none;
+            box-shadow: none;
+            transform: none;
         }
-      }
     }
-  }
-  &-disabled {
-    opacity: 0.4;
-    &:active {
-      box-shadow: none;
-      transform: none;
+    &-inline {
+        display: inline-block;
+        padding: 0 @button-h-spacing;
+        // vertical-align: middle;
     }
-  }
-  &-inline {
-    display: inline-block;
-    padding: 0 @button-h-spacing;
-    // vertical-align: middle;
-  }
-  &-xs {
-    height: 26px;
-    font-size: @font-size-base-sm;
-    line-height: 24px;
-  }
-  &-sm {
-    height: 30px;
-    font-size: @font-size-base-sm;
-    line-height: 28px;
-  }
-  &-lg {
-    height: @button-height;
-    font-size: @font-size-caption;
-    line-height: @button-line-height;
-  }
+    &-xs {
+        height: 26px;
+        font-size: @font-size-base-sm;
+        line-height: 24px;
+    }
+    &-sm {
+        height: 30px;
+        font-size: @font-size-base-sm;
+        line-height: 28px;
+    }
+    &-lg {
+        height: @button-height;
+        font-size: @font-size-caption;
+        line-height: @button-line-height;
+    }
 
-  // &-warning {
-  //   color: @color-text-base-inverse;
-  //   background-color: @primary-button-fill;
-  //   border: @border-width solid @primary-button-fill; /*no*/
-  //   // &:active, // uc browser not work normal
-  //   &.@{buttonPrefixCls}:active {
-  //     background-color: @primary-button-fill-tap;
-  //   }
-  //   &:before {
-  //     border: 1px solid @primary-button-fill; /*no*/
-  //   }
-  //   &.@{buttonPrefixCls}-disabled {
-  //     color: hsla(0, 0%, 100%, 0.6);
-  //     opacity: 0.4;
-  //     &:active {
-  //       background-color: @primary-button-fill;
-  //     }
-  //   }
-  // }
-
-  
-  
+    // &-warning {
+    //   color: @color-text-base-inverse;
+    //   background-color: @primary-button-fill;
+    //   border: @border-width solid @primary-button-fill; /*no*/
+    //   // &:active, // uc browser not work normal
+    //   &.@{buttonPrefixCls}:active {
+    //     background-color: @primary-button-fill-tap;
+    //   }
+    //   &:before {
+    //     border: 1px solid @primary-button-fill; /*no*/
+    //   }
+    //   &.@{buttonPrefixCls}-disabled {
+    //     color: hsla(0, 0%, 100%, 0.6);
+    //     opacity: 0.4;
+    //     &:active {
+    //       background-color: @primary-button-fill;
+    //     }
+    //   }
+    // }
 }
-

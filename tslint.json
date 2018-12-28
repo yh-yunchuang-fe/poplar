@@ -5,6 +5,13 @@
         "tslint-react"
     ],
     "rules": {
-        "semicolon": false
+        "semicolon": false,
+        "no-implicit-dependencies": false,
+        "no-submodule-imports": false
+    },
+    "linterOptions": {
+        "exclude": [
+            "lib"
+        ]
     }
 }
