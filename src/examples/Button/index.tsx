@@ -14,16 +14,16 @@ export default class ButtonDemo extends React.Component<any, any> {
                     primary圆形
                 </Button>
                 <div>全局按钮</div>
-                <Button>默认按钮</Button>
-                <Button disabled="true">默认禁止</Button>
-                <Button type="primary">primary 按钮</Button>
-                <Button type="primary" disabled="true">
+                <Button size="lg">默认按钮</Button>
+                <Button size="lg" disabled="true">默认禁止</Button>
+                <Button size="lg" type="primary">primary 按钮</Button>
+                <Button size="lg" type="primary" disabled="true">
                     primary 禁止
                 </Button>
-                <Button type="primary" plain="true">
+                <Button size="lg" type="primary" plain="true">
                     primary 朴素
                 </Button>
-                <Button type="primary" plain="true" disabled="true">
+                <Button size="lg" type="primary" plain="true" disabled="true">
                     primary 朴素 禁止
                 </Button>
                 <div>行内按钮</div>
