@@ -37,7 +37,7 @@ gulp.task('lib:ts', () => {
 });
 
 gulp.task('lib:style', () => {
-    return gulp.src(['../src/components/**/*.less', '../src/components/**/*.css'])
+    return gulp.src(['../src/components/**/index.less', '../src/components/**/index.css'])
         .pipe(cached('style'))
         .pipe(less())
         .pipe(postcss())
