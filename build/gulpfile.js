@@ -4,6 +4,7 @@ const ts = require('gulp-typescript');
 const babel = require('gulp-babel');
 const less = require('gulp-less');
 const postcss = require('gulp-postcss');
+const cached = require('gulp-cached');
 const WebpackDevServer = require('webpack-dev-server');
 const webpack = require('webpack');
 const opn = require('opn');
@@ -25,6 +26,7 @@ babelrc.plugins.push(
 
 gulp.task('lib:ts', () => {
   const tsResult = gulp.src(['../src/components/**/*.tsx', '../src/components/**/*.ts'])
+    .pipe(cached('ts'))
     .pipe(tsProject());
 
   const stream = merge([
@@ -36,6 +38,7 @@ gulp.task('lib:ts', () => {
 
 gulp.task('lib:style', () => {
   return gulp.src(['../src/components/**/*.less', '../src/components/**/*.css'])
+    .pipe(cached('style'))
     .pipe(less())
     .pipe(postcss())
     .pipe(gulp.dest('../lib'));
@@ -63,11 +66,11 @@ gulp.task('webpack-dev-server', () => {
   });
 });
 
-gulp.task('watch', gulp.series(['lib:build']), () => {
+gulp.task('watch', gulp.series(['lib:build'], () => {
   const watcher = gulp.watch('../src/components', gulp.series(['lib:build']));
   watcher.on('change', (path) => {
     console.log(`File ${path} was changed, running tasks...`);
   });
-});
+}));
 
 gulp.task('dev', gulp.parallel(['watch', 'webpack-dev-server']));
