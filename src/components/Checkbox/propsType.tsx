@@ -9,7 +9,7 @@ export default interface ItfCheckProps {
     onChange?: (x?: any) => void;
     // checked?: boolean;
     icon?: boolean;
-    position?: boolean;
+    position?: "left" | "right";
     defaultChecked?: boolean;
     textStyle?: object;
 }

@@ -60,34 +60,31 @@ export default class Checkbox extends React.Component<CheckProps, any> {
             ...style,
         };
         return (
-            <i
-                role="icon"
-                className={classNames(wrapCls)}
-                style={sty}
-                aria-disabled={disabled}
-                onChange={disabled ? undefined : onChange}
-                {...restProps}
-            />
+            // <i
+            //     role="icon"
+            //     className={classNames(wrapCls)}
+            //     style={sty}
+            //     aria-disabled={disabled}
+            //     onClick={disabled ? undefined : onChange}
+            //     {...restProps}
+            // />
         );
     }
+    public componentWillMount() {
+        const { defaultChecked } = this.props;
+        this.setState({
+            checked: defaultChecked,
+        });
+    }
     public renderIcon() {
-        // const { disabled } = this.props;
-        // if (typeof icon === 'boolean' && icon) {
-        //     const defaultIcon = (checked) => {
-        //         let icon = checked ? 'checked' : 'radio-off';
-        //         let color = '#24A8E8'
-        //         if(disabled) {
-        //             icon = 'radio-off'
-        //             color = '#ececec'
-        //         }
-        //         return (
-        //             <div className="icon">
-        //                 <Icon name={icon} color={color} />
-        //             </div>
-        //         );
-        //     };
-        //     return defaultIcon(this.state.checked);
-        // }
-        // return null;
+        const { disabled } = this.props;
+        const { checked } = this.state;
+        const icon = checked ? "checked" : "select-normal";
+        const color = checked ? "#FD7622" : "#DDDDDD";
+        return (
+            <div className="icon">
+                <Icon name={icon} color={color} />
+            </div>
+        );
     }
 }
