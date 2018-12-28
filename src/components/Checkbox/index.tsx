@@ -50,7 +50,7 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         } = this.props;
         const wrapCls = {
             [prefixCls]: true,
-            [`${prefixCls}-disabled`]: disabled,
+            // [`${prefixCls}-disabled`]: disabled,
             // [`${prefixCls}-${name}`]: true,
             [className]: className,
         };
@@ -71,9 +71,9 @@ export default class Checkbox extends React.Component<CheckProps, any> {
             <div
                 className={prefixCls}
                 {...restProps}
-                onClick={this.handleClick}
+                onClick={disabled ? undefined : this.handleClick}
             >
-                <div className={"container"} style={style}>
+                <div className={"check-container"} style={style}>
                     {position === "left" ? this.renderIcon() : null}
                     {children}
                     {position === "right" ? this.renderIcon() : null}
@@ -82,10 +82,13 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         );
     }
     public handleClick = () => {
+
         const checked = !this.state.checked;
         this.setState({
             checked,
         });
+        // console.log(checked)
+
         if (this.props.onChange) {
             this.props.onChange(checked);
         }
@@ -98,12 +101,17 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         });
     }
     public renderIcon() {
-        const { disabled } = this.props;
-        const { checked } = this.state;
-        const icon = checked ? "checked" : "select-normal";
-        const color = checked ? "#FD7622" : "#DDDDDD";
+        const { disabled, prefixCls, position } = this.props;
+        const icon = this.state.checked ? "select-fill" : "select-normal";
+        const color = this.state.checked ? "#FD7622" : "#DDDDDD";
+        const checkCls = {
+            [`${prefixCls}-disabled`]: disabled,
+            // [`${prefixCls}-${name}`]: true,
+            "icon-right": position === "left",
+            "icon-left": position === "right",
+        };
         return (
-            <div className="icon">
+            <div className={classNames(checkCls)}>
                 <Icon name={icon} color={color} />
             </div>
         );
