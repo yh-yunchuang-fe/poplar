@@ -1,5 +1,6 @@
 @import "../../assets/css/default.less";
 @import "../../assets/css/mixins.less";
+@button-border-color: "#999";
 
 @buttonPrefixCls: yh-button;
 
@@ -10,7 +11,7 @@
     box-sizing: border-box;
     padding: 0;
     text-align: center;
-    font-size: @button-font-size;
+    font-size: @font-size-base-sm;
     height: @button-height;
     line-height: @button-line-height;
     border-radius: @button-radius;
@@ -23,10 +24,10 @@
     // default
     color: @color-text-base;
     background-color: @fill-base;
-    border: @border-width solid @border-color-base; /*no*/
+    border: @border-width solid @button-border-color; /*no*/
 
     &:active {
-        box-shadow: 0 2px 5px 2px @border-color-base;
+        box-shadow: 0 2px 5px 2px @button-border-color;
         transform: translateY(-1px);
     }
     &-round {
