@@ -66,11 +66,11 @@ gulp.task('webpack-dev-server', () => {
     });
 });
 
-gulp.task('watch', gulp.series(['lib:build'], () => {
+gulp.task('watch', () => {
     const watcher = gulp.watch('../src/components', gulp.series(['lib:build']));
     watcher.on('change', (path) => {
         console.log(`File ${path} was changed, running tasks...`);
     });
-}));
+});
 
-gulp.task('dev', gulp.parallel(['watch', 'webpack-dev-server']));
+gulp.task('dev', gulp.series('lib:build', gulp.parallel(['watch', 'webpack-dev-server'])));
