@@ -1,17 +1,23 @@
 @import "../../assets/css/default.less";
 @import "../../assets/css/mixins.less";
-@button-border-color: #999;
 
 @buttonPrefixCls: yh-button;
-@button-radius: 5px;
-@button-round-radius: 22px;
-@fil-basefirst: #F75E1D;                   // UI库的基本色
-@fil-basesecond: #FFA133;
-@warning-button-bgi: linear-gradient(to right,@fil-basesecond,@fil-basefirst);
-@color-button: #FD7622;
-@button-h-spacing: 15px;
-@button-height: 44px;
-@button-line-height: 42px;
+
+@button-height-sm: 26px;
+@button-height-md: 30px;
+@button-height-lg: 40px;
+
+@button-h-spacing: 14px;
+
+@button-default-color: #666;
+@button-default-border-color: #999;
+@button-ghost-color: #FD7622;
+@button-primary-text-color: #fff;
+// primary 按钮
+
+@fill-start: #FFAE47;                   // UI库的基本色
+@fill-end: #FD7622;
+@fill-bg: linear-gradient(to right,@fill-start,@fill-end);
 
 .@{buttonPrefixCls} {
     display: block;
@@ -21,9 +27,6 @@
     padding: 0;
     text-align: center;
     font-size: @font-size-base;
-    height: 30px;
-    line-height: 28px;
-    border-radius: @button-radius;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -31,59 +34,31 @@
     white-space: nowrap;
 
     // default
-    color: @color-text-base;
+    color: @button-default-color;
     background-color: @fill-base;
-    border: @border-width solid @button-border-color; /*no*/
+    border: @border-width solid @button-default-border-color; /*no*/
 
     &:active {
-        box-shadow: 0 2px 5px 2px @button-border-color;
+        //box-shadow: 0 2px 5px 2px @button-default-border-color;
         transform: translateY(-1px);
     }
-    &-round {
-        border-radius: @button-round-radius;
-    }
-    &-circle {
-        width: 100px;
-        height: 100px;
-        line-height: 98px;
-        border-radius: 50%;
-    }
+
     &-primary {
-        color: @fill-base;
-        background-color: @fil-basesecond;
-        background-image: @warning-button-bgi;
+        color: @button-primary-text-color;
+        background-color: @fill-end;
+        background-image: @fill-bg;
         border: none;
-        &.@{buttonPrefixCls}:active {
-            box-shadow: 0px 1px 5px 2px @fil-basesecond;
-            transform: translateY(-1px);
+        &:active {
+            box-shadow: 0px 1px 5px 2px @fill-start;
         }
-        &.@{buttonPrefixCls}-disabled {
-            color: hsla(0, 0%, 100%, 0.6);
-            opacity: 0.4;
-            &:active {
-                // color: hsla(0, 0%, 100%, 0.6);
-                // background-color: @brand-error;
-                box-shadow: none;
-                transform: none;
-            }
-        }
-        &.@{buttonPrefixCls}-plain {
-            color: @color-button;
-            background: @fill-base;
-            border: @border-width solid @fil-basefirst;
-            &:active {
-                // color: @color-button;
-                box-shadow: 0 2px 5px 2px @fil-basesecond;
-                transform: translateY(-1px);
-            }
-            &.@{buttonPrefixCls}-disabled {
-                // color: hsla(0, 0%, 100%, 0.6);
-                opacity: 0.4;
-                &:active {
-                    box-shadow: none;
-                    transform: none;
-                }
-            }
+    }
+    &-ghost {
+        color: @button-ghost-color;
+        background: @fill-base;
+        border: @border-width solid @button-ghost-color;/*no*/
+        &:active {
+            // color: @color-button;
+            //box-shadow: 0 2px 5px 2px @button-ghost-color;
         }
     }
     &-disabled {
@@ -93,44 +68,89 @@
             transform: none;
         }
     }
+
     &-inline {
         display: inline-block;
         padding: 0 @button-h-spacing;
         // vertical-align: middle;
     }
-    &-xs {
-        height: 26px;
-        font-size: @font-size-base;
-        line-height: 24px;
-    }
     &-sm {
-        height: 30px;
+        height: @button-height-sm;
         font-size: @font-size-base;
-        line-height: 28px;
+        line-height: @button-height-sm;
+        border-radius: @button-height-sm;
+    }
+    &-md {
+        height: @button-height-md;
+        font-size: @font-size-base;
+        line-height: @button-height-md;
+        border-radius: @button-height-md;
     }
     &-lg {
-        height: @button-height;
+        height: @button-height-lg;
         font-size: @font-size-lg;
-        line-height: @button-line-height;
+        line-height: @button-height-lg;
+        border-radius: @button-height-lg;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    html:not([data-scale]) .@{buttonPrefixCls} {
+        position:relative;
+        border: none;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200%;
+            height: 200%;
+            border: @border-width solid @button-default-color; /*no*/
+            -webkit-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scale(.5);
+            -ms-transform: scale(.5);
+            transform: scale(.5);
+            box-sizing: border-box;
+            pointer-events: none;
+            z-index: -1;
+        }
     }
 
-    // &-warning {
-    //   color: @color-text-base-inverse;
-    //   background-color: @primary-button-fill;
-    //   border: @border-width solid @primary-button-fill; /*no*/
-    //   // &:active, // uc browser not work normal
-    //   &.@{buttonPrefixCls}:active {
-    //     background-color: @primary-button-fill-tap;
-    //   }
-    //   &:before {
-    //     border: 1px solid @primary-button-fill; /*no*/
-    //   }
-    //   &.@{buttonPrefixCls}-disabled {
-    //     color: hsla(0, 0%, 100%, 0.6);
-    //     opacity: 0.4;
-    //     &:active {
-    //       background-color: @primary-button-fill;
-    //     }
-    //   }
-    // }
+    html:not([data-scale]) .@{buttonPrefixCls}-primary {
+        &:before {
+            border: none;/*no*/
+        }
+    }
+
+    html:not([data-scale]) .@{buttonPrefixCls}-ghost {
+        &:before {
+            border: @border-width solid @button-ghost-color;/*no*/
+        }
+        &.@{buttonPrefixCls}-disabled {
+            &:before {
+                border: @border-width solid rgba(0,0,0,.2);/*no*/
+            }
+        }
+    }
+
+    // size
+    html:not([data-scale]) .@{buttonPrefixCls}-sm {
+        &:before {
+            border-radius: @button-height-sm;
+        }
+    }
+    html:not([data-scale]) .@{buttonPrefixCls}-md {
+        &:before {
+            border-radius: @button-height-md;
+        }
+    }
+    html:not([data-scale]) .@{buttonPrefixCls}-lg {
+        &:before {
+            border-radius: @button-height-lg;
+        }
+    }
 }
