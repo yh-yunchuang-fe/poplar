@@ -22,13 +22,13 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         prefixCls: "yh-checkbox",
         // size: "default",
         style: {},
-        textStyle: {},
+        textStyle: {}
         // type: "default",
     };
     constructor(props: CheckProps) {
         super(props);
         this.state = {
-            checked: false,
+            checked: false
         };
     }
     public render() {
@@ -68,12 +68,33 @@ export default class Checkbox extends React.Component<CheckProps, any> {
             //     onClick={disabled ? undefined : onChange}
             //     {...restProps}
             // />
+            <div
+                className={prefixCls}
+                {...restProps}
+                onClick={this.handleClick}
+            >
+                <div className={"container"} style={style}>
+                    {position === "left" ? this.renderIcon() : null}
+                    {children}
+                    {position === "right" ? this.renderIcon() : null}
+                </div>
+            </div>
         );
     }
+    public handleClick = () => {
+        const checked = !this.state.checked;
+        this.setState({
+            checked,
+        });
+        if (this.props.onChange) {
+            this.props.onChange(checked);
+        }
+    };
+
     public componentWillMount() {
         const { defaultChecked } = this.props;
         this.setState({
-            checked: defaultChecked,
+            checked: defaultChecked
         });
     }
     public renderIcon() {

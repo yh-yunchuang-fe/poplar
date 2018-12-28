@@ -18,7 +18,6 @@ export default class IconDemo extends React.Component<any, any> {
             "select-normal",
             "select-active-orange",
             "select-disable",
-            "select-normal",
             "Select-time",
             "scan-code",
             "return-new",

@@ -6,6 +6,7 @@ import {
     withRouter,
 } from "react-router-dom";
 import Button from "../Button";
+import Checkbox from "../Checkbox";
 import Icon from "../Icon";
 import Dialog from "../Dialog";
 import "./index.less";
@@ -26,6 +27,10 @@ const routes: IRoute[] = [
         component: Icon,
         name: "Icon",
         path: "/Icon",
+    },{
+        component: Checkbox,
+        name: "Checkbox",
+        path: "/Checkbox",
     }, {
         component: Dialog,
         name: "Dialog",
