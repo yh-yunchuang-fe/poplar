@@ -1,5 +1,5 @@
+import Button from "poplar/Button";
 import * as React from "react";
-import Button from "../../components/Button";
 import "./index.less";
 
 export default class ButtonDemo extends React.Component<any, any> {
