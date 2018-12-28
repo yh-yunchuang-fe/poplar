@@ -6,7 +6,7 @@
   "scripts": {
     "commit": "git-cz",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "lint": "tslint -p .",
+    "lint": "tslint -p . -c ./tslint.json",
     "start": "gulp -f ./build/gulpfile.js dev",
     "build": "webpack --config ./config/webpack.config.prod.js",
     "build:lib": "gulp -f ./build/gulpfile.js lib:build",

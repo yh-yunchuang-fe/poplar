@@ -61,6 +61,9 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.less']
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.less'],
+    alias: {
+      poplar: path.resolve(__dirname, '../lib'),
+    }
   },
 };

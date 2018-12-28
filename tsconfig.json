@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "noImplicitAny": true,
     "module": "es6",
     "target": "es5",
     "jsx": "react",
     "allowJs": false,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "paths": {
+      "poplar/*": ["lib/*"]
+    }
   },
   "include": [
     "src/examples/**/*.tsx",
