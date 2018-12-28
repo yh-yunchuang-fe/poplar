@@ -40,10 +40,11 @@
     }
     &-primary {
         color: @color-text-base-inverse;
+        background-color: @fil-basesecond;
         background-image: @warning-button-bgi;
-        border: transparent;
+        border: none;
         &.@{buttonPrefixCls}:active {
-            box-shadow: 0 2px 5px 2px @fil-basesecond;
+            box-shadow: 0px 1px 5px 2px @fil-basesecond;
             transform: translateY(-1px);
         }
         &.@{buttonPrefixCls}-disabled {
