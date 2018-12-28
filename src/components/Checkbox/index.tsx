@@ -3,17 +3,20 @@ import "./index.less";
 import CheckProps from "./propsType";
 
 import classNames from "classnames";
+import Icon from "../Icon";
+
 import * as React from "react";
 
 export default class Checkbox extends React.Component<CheckProps, any> {
     public static defaultProps = {
         // activeStyle: {},
+        checked: false,
         className: "",
         defaultChecked: false,
         disabled: false,
         // loading: false,
         // name: "",
-        icon: true,
+        // icon: true,
         onChange: () => "checkbox",
         position: "left",
         prefixCls: "yh-checkbox",
@@ -24,7 +27,9 @@ export default class Checkbox extends React.Component<CheckProps, any> {
     };
     constructor(props: CheckProps) {
         super(props);
-        this.state = {};
+        this.state = {
+            checked: false,
+        };
     }
     public render() {
         const {
@@ -35,6 +40,7 @@ export default class Checkbox extends React.Component<CheckProps, any> {
             style,
             textStyle,
             className,
+            // checked,
             defaultChecked,
             // type,
             // size,
@@ -63,5 +69,25 @@ export default class Checkbox extends React.Component<CheckProps, any> {
                 {...restProps}
             />
         );
+    }
+    public renderIcon() {
+        // const { disabled } = this.props;
+        // if (typeof icon === 'boolean' && icon) {
+        //     const defaultIcon = (checked) => {
+        //         let icon = checked ? 'checked' : 'radio-off';
+        //         let color = '#24A8E8'
+        //         if(disabled) {
+        //             icon = 'radio-off'
+        //             color = '#ececec'
+        //         }
+        //         return (
+        //             <div className="icon">
+        //                 <Icon name={icon} color={color} />
+        //             </div>
+        //         );
+        //     };
+        //     return defaultIcon(this.state.checked);
+        // }
+        // return null;
     }
 }
