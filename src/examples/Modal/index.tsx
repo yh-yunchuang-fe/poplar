@@ -11,20 +11,9 @@ export default class ModalDemo extends React.Component<any, any> {
     constructor (props: any) {
         super(props)
         this.state = {
-            visible: false
+            visible: false,
+            visible2: false
         }
-    }
-
-    show = () => {
-        this.setState({
-            visible: true
-        })
-    }
-
-    hide = () => {
-        this.setState({
-            visible: false
-        })
     }
 
     openAlert = () => {
@@ -37,20 +26,45 @@ export default class ModalDemo extends React.Component<any, any> {
     render () {
         return (
             <div className="modal-container">
-                <Button type="primary" inline onClick={this.show}>打开Modal</Button>
+                <Button
+                    type="primary"
+                    inline
+                    onClick={()=>{ this.setState({ visible: true })}}>
+                    打开primary按钮
+                </Button>
+                <Button
+                    type="primary"
+                    inline
+                    onClick={()=>{ this.setState({ visible2: true })}}>
+                    打开灰色按钮
+                </Button>
                 <Button type="primary" inline onClick={this.openAlert}>打开Alert</Button>
                 <Modal
                     visible={this.state.visible}
                     maskCloseable={false}
-                    onClose={this.hide}
-                    title="Title"
+                    onClose={()=>{ this.setState({ visible: false }) }}
+                    title="默认按钮"
                     footer={[{text: '确定', onPress: ()=>{
                             console.log('onPress ')
-                            this.hide()
+                            this.setState({ visible: false })
                         }}]}
                 >
                     <div>
-                        <h1>zhangyisdkkkk</h1>
+                        <h1>primary按钮</h1>
+                    </div>
+                </Modal>
+                <Modal
+                    visible={this.state.visible2}
+                    maskCloseable={false}
+                    onClose={()=>{ this.setState({ visible2: false }) }}
+                    title="灰色按钮"
+                    footer={[{text: '确定', type: "default", onPress: ()=>{
+                            console.log('onPress ')
+                            this.setState({ visible2: false })
+                        }}]}
+                >
+                    <div>
+                        <h1>灰色按钮</h1>
                     </div>
                 </Modal>
             </div>

@@ -7,6 +7,7 @@ import Modal from '../Modal'
 
 export interface IButtonProps {
     text: string;
+    type?: 'primary' | 'default'
     onPress?: any;
 }
 
@@ -55,7 +56,7 @@ export default function alert(...args:any) {
         }, 210)
     }
 
-    const footer = actions.map((btn:IButtonProps) => {
+    const footer = actions.map((btn:IButtonProps, index:number) => {
         const orginPress = btn.onPress || function() {};
         btn.onPress = () => {
             const res = orginPress()
@@ -66,6 +67,10 @@ export default function alert(...args:any) {
             } else {
                 close()
             }
+        }
+        btn.type = 'default'
+        if (index === 1) {
+            btn.type = 'primary'
         }
         return btn;
     })
