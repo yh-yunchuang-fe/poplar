@@ -1,0 +1,64 @@
+/*
+ * @Author: beilunyang
+ * @Date: 2018-12-28 15:54:54
+ * @Last Modified by: beilunyang
+ * @Last Modified time: 2018-12-29 15:51:37
+ */
+@import "../../../assets/css/default.less";
+@import "./variables.less";
+
+.@{prefixCls}{
+    position: relative;
+    display: inline-block;
+    border-radius: 2PX;
+
+    &-size-lg {
+        padding: @v-spacing-lg @h-spacing-lg;
+        font-size: @font-size-lg;
+    }
+
+    &-size-md {
+        padding: @v-spacing-md @h-spacing-md;
+        font-size: @font-size-md;
+    }
+
+    .border {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        .border-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200%;
+            height: 200%;
+            border: @border-width solid #ddd;
+            border-radius: @border-radius * 2;
+            transform-origin: 0 0;
+
+            @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+                & {
+                    transform: scale(.5);
+                }
+            }
+        }
+    }
+
+    &-default {
+        color: @color-text-base;
+        background-color: @fill-base;
+    }
+
+    &-primary {
+        color: @color-primary;
+        background-color: fadeout(@color-primary, 95%);
+
+        .border {
+            .border-line {
+                border-color: fadeout(@color-primary, 80%),
+            }
+        }
+    }
+}
