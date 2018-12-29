@@ -12,6 +12,7 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         // activeStyle: {},
         checked: false,
         className: "",
+        color: "#FD7622",
         defaultChecked: false,
         disabled: false,
         // loading: false,
@@ -22,6 +23,7 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         prefixCls: "yh-checkbox",
         // size: "default",
         style: {},
+        size: "md",
         textStyle: {}
         // type: "default",
     };
@@ -35,7 +37,6 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         const {
             children,
             prefixCls,
-            icon,
             position,
             style,
             textStyle,
@@ -60,14 +61,6 @@ export default class Checkbox extends React.Component<CheckProps, any> {
             ...style,
         };
         return (
-            // <i
-            //     role="icon"
-            //     className={classNames(wrapCls)}
-            //     style={sty}
-            //     aria-disabled={disabled}
-            //     onClick={disabled ? undefined : onChange}
-            //     {...restProps}
-            // />
             <div
                 className={prefixCls}
                 {...restProps}
@@ -101,9 +94,9 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         });
     }
     public renderIcon() {
-        const { disabled, prefixCls, position } = this.props;
+        const { disabled, color, size, prefixCls, position } = this.props;
         const icon = this.state.checked ? "select-fill" : "select-normal";
-        const color = this.state.checked ? "#FD7622" : "#DDDDDD";
+        const iconColor = this.state.checked ? color : "#DDDDDD";
         const checkCls = {
             [`${prefixCls}-disabled`]: disabled,
             // [`${prefixCls}-${name}`]: true,
@@ -112,7 +105,7 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         };
         return (
             <div className={classNames(checkCls)}>
-                <Icon name={icon} color={color} />
+                <Icon name={icon} size={size} color={iconColor} />
             </div>
         );
     }
