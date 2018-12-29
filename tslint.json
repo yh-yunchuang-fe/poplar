@@ -7,7 +7,11 @@
     "rules": {
         "semicolon": false,
         "no-implicit-dependencies": false,
-        "no-submodule-imports": false
+        "no-submodule-imports": false,
+        "no-empty": false,
+        "noImplicitAny": false,
+        "object-literal-sort-keys": false,
+        "trailing-comma": false
     },
     "linterOptions": {
         "exclude": [

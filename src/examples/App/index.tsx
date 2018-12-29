@@ -12,6 +12,7 @@ import Dialog from "../Dialog";
 import "./index.less";
 import Modal from "../Modal";
 import Popup from "../Popup";
+import ImgPreview from "../ImgPreview";
 
 interface IRoute {
     path: string;
@@ -44,6 +45,10 @@ const routes: IRoute[] = [
         component: Popup,
         name: "Popup",
         path: "/Popup",
+    }, {
+        component: ImgPreview,
+        name: "ImgPreview",
+        path: "/ImgPreview",
     },
 ];
 
