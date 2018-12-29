@@ -9,20 +9,21 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
 
     public static defaultProps = {
         prefixCls: "yh-imgpreview",
-        defaultIndex: 0,
+        index: 0,
         deleteIcon: false,
         visible: false,
         onClose: () => {},
-        onDelete: () => {}
+        onDelete: () => {},
+        onChange: () => {}
     }
 
     private wrapper = document.getElementById("modal-root")
 
     constructor(props: IImgPreviewProps) {
         super(props)
-        this.state = {
-            activeIndex: this.props.defaultIndex
-        }
+        // this.state = {
+        //     activeIndex: this.props.defaultIndex
+        // }
     }
 
     componentDidUpdate (prevProps: IImgPreviewProps, prevState: any) {
@@ -47,8 +48,7 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
     }
 
     public render() {
-        const { activeIndex } = this.state
-        const { prefixCls, visible, deleteIcon, imgUrls, onClose, onDelete } = this.props
+        const { index, prefixCls, visible, deleteIcon, imgUrls, onClose, onDelete, onChange } = this.props
 
         const swipeSty = {
             height: "100%",
@@ -66,7 +66,7 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
                     onClick={onClose}
                 >
                     <div className="pagination">
-                        <span className="current-page">{activeIndex + 1}</span>
+                        <span className="current-page">{index + 1}</span>
                         /
                         <span className="total-page">{imgUrls.length}</span>
                     </div>
@@ -74,7 +74,7 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
                     {!deleteIcon ? null
                         :<div className="btn-delete"
                               onClick={(e)=>{
-                                  onDelete(this.state.activeIndex)
+                                  onDelete(index, imgUrls)
                                   e.stopPropagation();
                                   return false;
                               }}>
@@ -84,14 +84,12 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
 
 
                     <SwipeableViews
-                        index={activeIndex}
+                        index={index}
                         resistance
                         containerStyle={swipeSty}
                         style={swipeSty}
                         onChangeIndex={(activeIndex: number)=>{
-                            this.setState({
-                                activeIndex
-                            })
+                            onChange(activeIndex, imgUrls)
                         }}
                     >
                         {

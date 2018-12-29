@@ -3,7 +3,8 @@ export default interface IImgPreviewProps {
     prefixCls?: string;
     visible: boolean;
     imgUrls: any[];
-    defaultIndex?: number;
+    index: number;
     onClose: (x?: any) => any;
-    onDelete?: (x?: any) => any;
+    onDelete?: (x?: number, y?: any[]) => any;
+    onChange?: (x?: number, y?: any[]) => any;
 }
