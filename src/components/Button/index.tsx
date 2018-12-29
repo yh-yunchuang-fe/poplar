@@ -1,12 +1,8 @@
 import "./index.less";
-
 import ButtonProps from "./propsType";
-
 import classNames from "classnames";
 import * as React from "react";
-
 export default class Button extends React.Component<ButtonProps, any> {
-
     public static defaultProps = {
         prefixCls: "yh-button",
         type: "default",
@@ -17,11 +13,9 @@ export default class Button extends React.Component<ButtonProps, any> {
         inline: false,
         onClick: () => "button",
     };
-
     constructor(props: ButtonProps) {
         super(props);
     }
-
     public render() {
         const {
             children,

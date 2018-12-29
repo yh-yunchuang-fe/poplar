@@ -6,8 +6,6 @@ import Animation from "../Animation";
 import "./style/index.less";
 
 export default class Dialog extends React.Component<IDialogProps, any> {
-
-
     public static defaultProps = {
         prefixCls: "yh-dialog",       // 动画样式前缀 默认不需要传
         // position: 'fixed',         // 为了解决fixed 弹窗中有文本框，光标位置异常问题 需把fixed改为absolute
@@ -37,20 +35,16 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         usePortal: true,
         // afterClose: noop
     };
-
     private openTime: any = null;
-
     constructor(props: IDialogProps) {
         super(props);
     }
-
     public componentDidUpdate() {
         const props = this.props;
         if (props.visible) {
             this.openTime = Date.now();
         }
     }
-
     getMaskElement() {
         let maskElement = null
         const {
@@ -84,10 +78,8 @@ export default class Dialog extends React.Component<IDialogProps, any> {
                 </Animation>
             );
         }
-
         return maskElement;
     }
-
     private getDialogElement() {
         const {
             prefixCls,
@@ -99,7 +91,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
             children,
         } = this.props
         const wrapStyle = this.getWrapStyle()
-
         let dialogElement = null
         if (visible) {
             dialogElement = (
@@ -125,7 +116,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
 
         return dialogElement
     }
-
     //获取蒙板动画
     getMaskTransitionName() {
         const props = this.props
@@ -136,7 +126,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         }
         return maskTransitionName
     }
-
     //获取content动画
     getTransitionName() {
         const props = this.props
@@ -147,7 +136,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         }
         return transitionName;
     }
-
     getZIndexStyle() {
         const style:any = {}
         const props = this.props
@@ -156,17 +144,14 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         }
         return style
     }
-
     getMaskStyle() {
         return { maskStyle: this.props.maskStyle, ...this.getZIndexStyle() }
         // return Object.assign({}, this.getZIndexStyle(), this.props.maskStyle)
     }
-
     getWrapStyle() {
         // return Object.assign({}, this.getZIndexStyle(), this.props.wrapStyle)
         return {wrapStyle: this.props.wrapStyle, ...this.getZIndexStyle()}
     }
-
     onMaskClick(e:any) {
         if (Date.now() - this.openTime < 300) {
             return;
@@ -175,16 +160,13 @@ export default class Dialog extends React.Component<IDialogProps, any> {
             this.close(e)
         }
     }
-
     close(e:any) {
         this.props.onClose(e)
     }
-
     render() {
         const props = this.props
         const transitionName = this.getTransitionName()
         const modalRoot = document.getElementById('modal-root')
-
         const node = (
             <div ref="dialog-wrapper">
                 {this.getMaskElement()}
@@ -200,7 +182,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
                 </Animation>
             </div>
         )
-
         if (props.usePortal) {
             return createPortal(
                 node,
@@ -210,5 +191,4 @@ export default class Dialog extends React.Component<IDialogProps, any> {
             return node
         }
     }
-
 }

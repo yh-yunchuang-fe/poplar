@@ -1,28 +1,20 @@
 import "./index.less";
-
 import InputNumProps from "./propsType";
-
 import classNames from "classnames";
 import Icon from "../Icon";
-
 import * as React from "react";
-
 export default class InputNumber extends React.Component<InputNumProps, any> {
     public static defaultProps = {
-        // activeStyle: {},
-        // checked: false,
         className: "",
         color: "#FD7622",
         defaultValue: 0,
         disabled: false,
-        // min: 0,
         max: 0,
         onChange: () => "InputNumber",
         prefixCls: "yh-checkbox",
         style: {},
         size: "lg",
         step: 1,
-        // textStyle: {}
     };
     constructor(props: InputNumProps) {
         super(props);
@@ -32,10 +24,8 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
     }
     public render() {
         const {
-            // children,
             prefixCls,
             style,
-            // textStyle,
             className,
             defaultValue,
             disabled,
@@ -46,7 +36,6 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
         const wrapCls = {
             [prefixCls]: true,
             [`${prefixCls}-disabled`]: disabled,
-            // [`${prefixCls}-${name}`]: true,
             [className]: className,
         };
         return (
@@ -65,9 +54,8 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
         this.setState({
             value,
         });
-
         onChange && onChange(value);
-    };
+    }
     public handlePlus = () => {
         const { step, onChange, max } = this.props;
         let { value } = this.state;
@@ -75,11 +63,8 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
         this.setState({
             value,
         });
-
         onChange && onChange(value);
-
-    };
-
+    }
     public componentWillMount() {
         const { defaultValue } = this.props;
         this.setState({
@@ -91,12 +76,6 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
         const { value } = this.state;
         const icon = "minus-circle";
         const iconColor = value > 1 ? color : "#DDDDDD";
-        // const checkCls = {
-        //     // [`${prefixCls}-disabled`]: disabled,
-        //     // [`${prefixCls}-${name}`]: true,
-        //     // "icon-left": true,
-        //     // "icon-left": position === "right",
-        // };
         const allowMinus = !disabled && value > 0
         return (
             <div onClick={allowMinus ? this.handleMinus : undefined}>

@@ -1,31 +1,21 @@
 import "./index.less";
-
 import CheckProps from "./propsType";
-
 import classNames from "classnames";
 import Icon from "../Icon";
-
 import * as React from "react";
-
 export default class Checkbox extends React.Component<CheckProps, any> {
     public static defaultProps = {
-        // activeStyle: {},
         checked: false,
         className: "",
         color: "#FD7622",
         defaultChecked: false,
         disabled: false,
-        // loading: false,
-        // name: "",
-        // icon: true,
         onChange: () => "checkbox",
         position: "left",
         prefixCls: "yh-checkbox",
-        // size: "default",
         style: {},
         size: "md",
         textStyle: {}
-        // type: "default",
     };
     constructor(props: CheckProps) {
         super(props);
@@ -41,24 +31,14 @@ export default class Checkbox extends React.Component<CheckProps, any> {
             style,
             textStyle,
             className,
-            // checked,
             defaultChecked,
-            // type,
-            // size,
             disabled,
             onChange,
             ...restProps
         } = this.props;
         const wrapCls = {
             [prefixCls]: true,
-            // [`${prefixCls}-disabled`]: disabled,
-            // [`${prefixCls}-${name}`]: true,
             [className]: className,
-        };
-        const sty = {
-            // color,
-            // fontSize: fontSize + "px",
-            ...style,
         };
         return (
             <div
@@ -80,8 +60,6 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         this.setState({
             checked,
         });
-        // console.log(checked)
-
         if (this.props.onChange) {
             this.props.onChange(checked);
         }
@@ -99,7 +77,6 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         const iconColor = this.state.checked ? color : "#DDDDDD";
         const checkCls = {
             [`${prefixCls}-disabled`]: disabled,
-            // [`${prefixCls}-${name}`]: true,
             "icon-left": position === "left",
             "icon-right": position === "right",
         };

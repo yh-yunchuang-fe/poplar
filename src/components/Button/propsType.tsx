@@ -5,7 +5,6 @@ export default interface ItfButtonProps {
     size?: "sm" | "md" | "lg";
     style?: React.CSSProperties;
     disabled?: any;
-    // activeStyle?: object;
     className?: any;
     inline?: any;
     onClick?: (x?: any) => void;

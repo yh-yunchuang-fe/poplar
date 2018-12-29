@@ -1,23 +1,17 @@
 import "./index.less";
-
 import IconProps, { ItfType } from "./propsType";
-
 import classNames from "classnames";
 import * as React from "react";
-
 export default class Icon extends React.Component<IconProps, any> {
     public static defaultProps = {
-        // activeStyle: {},
         className: "",
         color: "",
         disabled: false,
-        // loading: false,
         name: "",
         onClick: () => "icon",
         prefixCls: "yh-icon",
         size: "default",
         style: {},
-        // textStyle: {},
         type: "default",
     };
     constructor(props: IconProps) {
