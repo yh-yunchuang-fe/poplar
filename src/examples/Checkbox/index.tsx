@@ -18,6 +18,8 @@ export default class CheckboxDemo extends React.Component<any, any> {
             <Checkbox disabled={true}> defaultChecked为true </Checkbox>
             <div className="tip">获取选中状态</div>
             <Checkbox defaultChecked={true} onChange={this.onChange}> 点击获取状态 </Checkbox>
+            <div className="tip">改变icon大小及颜色</div>
+            <Checkbox defaultChecked={true} onChange={this.onChange} size="lg" color="lime"> <span className="changeStyle">改变icon的样式</span> </Checkbox>
 
         </div>;
     }
