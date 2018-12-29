@@ -8,6 +8,7 @@ import {
 import Button from "../Button";
 import Checkbox from "../Checkbox";
 import Icon from "../Icon";
+import InputNumber from "../InputNumber";
 import Dialog from "../Dialog";
 import "./index.less";
 import Modal from "../Modal";
@@ -32,6 +33,10 @@ const routes: IRoute[] = [
         component: Checkbox,
         name: "Checkbox",
         path: "/Checkbox",
+    }, {
+        component: InputNumber,
+        name: "InputNumber",
+        path: "/InputNumber",
     }, {
         component: Dialog,
         name: "Dialog",
