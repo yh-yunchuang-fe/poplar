@@ -100,8 +100,8 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         const checkCls = {
             [`${prefixCls}-disabled`]: disabled,
             // [`${prefixCls}-${name}`]: true,
-            "icon-right": position === "left",
-            "icon-left": position === "right",
+            "icon-left": position === "left",
+            "icon-right": position === "right",
         };
         return (
             <div className={classNames(checkCls)}>
