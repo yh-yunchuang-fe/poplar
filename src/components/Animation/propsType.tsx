@@ -17,4 +17,5 @@ export default interface IAnimationProps {
     transitionEnterTimeout?: number;
     transitionAppearTimeout?: number;
     transitionLeaveTimeout?: number;
+    className?: string;
 }
