@@ -15,6 +15,7 @@ import Modal from "../Modal";
 import Popup from "../Popup";
 import ImgPreview from "../ImgPreview";
 import Tag from "../Tag";
+import Indicator from "../Indicator";
 
 interface IRoute {
     path: string;
@@ -59,6 +60,10 @@ const routes: IRoute[] = [
         component: Tag,
         name: "Tag",
         path: "/Tag",
+    }, {
+        component: Indicator,
+        name: "Indicator",
+        path: "/Indicator",
     },
 ];
 

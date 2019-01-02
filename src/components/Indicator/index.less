@@ -1,0 +1,58 @@
+@import '../../assets/css/default.less';
+
+@keyframes amRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@prefixCls: yh-indicator;
+// 指示器尺寸 Indicator TODO 大小待定
+// ---
+@indicator-sm: 14px;
+@indicator-md: 18px;
+@indicator-lg: 24px;
+@indicator-xl: 30px;
+
+@indicator-caption-color: #999;
+@h-spacing-md: 8px;
+
+.@{prefixCls} {
+    display: flex;
+    align-items: center;
+
+    &-loading {
+        animation: amRotate .8s linear infinite;
+
+        &-xl {
+            width: @indicator-xl;
+            height: @indicator-xl;
+        }
+
+        &-lg {
+            width: @indicator-lg;
+            height: @indicator-lg;
+        }
+
+        &-md {
+            width: @indicator-md;
+            height: @indicator-md;
+        }
+
+        &-sm {
+            height: @indicator-sm;
+            width: @indicator-sm;
+        }
+    }
+
+    &-tip {
+        font-size: @font-size-base;
+        color: @indicator-caption-color;
+        margin-left: @h-spacing-md;
+    }
+}
+

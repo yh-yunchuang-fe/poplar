@@ -2,7 +2,7 @@
  * Created by zhangyi on 2017/10/19.
  */
 import * as React from 'react'
-import Modal from "../../components/Modal"
+import Modal from "poplar/Modal"
 import alert from "../../components/alert"
 import Button from "../../components/Button"
 import './index.less'
