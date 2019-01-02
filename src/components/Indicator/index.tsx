@@ -24,7 +24,7 @@ export default class Indicator extends React.Component<IIndicatorProps, any> {
         } = this.props;
 
         const imgCls = classNames(`yh-indicator-loading-${size}`, 'yh-indicator-loading');
-        const spinnerImg = color === 'blue' ? require('./loading-blue.png') : require('./loading-white.png');
+        const spinnerImg = color === 'blue' ? require('./imgs/loading-blue.png') : require('./imgs/loading-white.png');
         const cls = classNames('yh-indicator', className);
         const textCls = classNames('yh-indicator-tip', textClassName);
         return (

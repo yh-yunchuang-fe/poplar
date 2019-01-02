@@ -44,7 +44,12 @@ gulp.task('lib:style', () => {
         .pipe(gulp.dest('../lib'));
 });
 
-gulp.task('lib:build', gulp.series(['lib:ts', 'lib:style']));
+gulp.task('lib:assets', () => {
+    return gulp.src('../src/components/*/{iconfont,imgs}/**/*')
+        .pipe(gulp.dest('../lib'));
+});
+
+gulp.task('lib:build', gulp.series(['lib:ts', 'lib:style', 'lib:assets']));
 
 gulp.task('webpack-dev-server', () => {
     const compiler = webpack(webpackDevConfig);
