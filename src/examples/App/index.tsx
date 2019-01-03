@@ -16,6 +16,7 @@ import Popup from "../Popup";
 import ImgPreview from "../ImgPreview";
 import Tag from "../Tag";
 import Indicator from "../Indicator";
+import Toast from "../Toast";
 
 interface IRoute {
     path: string;
@@ -64,6 +65,10 @@ const routes: IRoute[] = [
         component: Indicator,
         name: "Indicator",
         path: "/Indicator",
+    }, {
+        component: Toast,
+        name: "Toast",
+        path: "/Toast",
     },
 ];
 

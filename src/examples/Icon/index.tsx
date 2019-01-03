@@ -1,5 +1,5 @@
 import * as React from "react";
-import Icon from "../../components/Icon";
+import Icon from "poplar/Icon";
 import "./index.less";
 
 export default class IconDemo extends React.Component<any, any> {

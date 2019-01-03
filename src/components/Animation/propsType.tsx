@@ -10,11 +10,12 @@ interface CSSTransitionGroupTransitionName {
 export default interface IAnimationProps {
     children?: any;
     component?: any;
-    transitionName: any;//string | CSSTransitionGroupTransitionName;
+    transitionName?: any;//string | CSSTransitionGroupTransitionName;
     transitionEnter?: boolean;
     transitionAppear?: boolean;
     transitionLeave?: boolean;
     transitionEnterTimeout?: number;
     transitionAppearTimeout?: number;
     transitionLeaveTimeout?: number;
+    className?: string;
 }
