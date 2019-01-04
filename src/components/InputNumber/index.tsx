@@ -10,6 +10,7 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
         defaultValue: 0,
         disabled: false,
         max: 0,
+        min: 0,
         onChange: () => "InputNumber",
         prefixCls: "yh-checkbox",
         style: {},
@@ -47,10 +48,10 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
         );
     }
     public handleMinus = () => {
-        const { step, onChange } = this.props;
+        const { step, onChange, min } = this.props;
         let { value } = this.state;
         // value = max && value === max && max % step != 0 ? value - max % step : value-step;
-        value = value - step < 0 ? 0 : value - step;
+        value = value - step < min ? min : value - step;
         this.setState({
             value,
         });
@@ -72,11 +73,11 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
         });
     }
     public renderMinusIcon() {
-        const { disabled, color, size, prefixCls, max, step} = this.props;
+        const { disabled, color, size, prefixCls, max, step, min} = this.props;
         const { value } = this.state;
         const icon = "minus-circle";
-        const iconColor = value > 1 ? color : "#DDDDDD";
-        const allowMinus = !disabled && value > 0
+        const iconColor = value > min ? color : "#DDDDDD";
+        const allowMinus = !disabled && value > min
         return (
             <div onClick={allowMinus ? this.handleMinus : undefined}>
                 <Icon name={icon} size={size} color={iconColor} />

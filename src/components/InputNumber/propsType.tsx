@@ -6,6 +6,7 @@ export default interface ItfInputNumProps {
     disabled?: boolean;
     defaultValue?: number,
     max?: number,
+    min?: number,
     onChange?: (x?: any) => void;
     size?: "xxs" | "xs" | "sm" | "md" | "lg";
     step?: number,
