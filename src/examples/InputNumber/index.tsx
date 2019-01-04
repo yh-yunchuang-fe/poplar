@@ -9,8 +9,9 @@ export default class CheckboxDemo extends React.Component<any, any> {
             <InputNumber/>
             <div className="tip">指定默认初始值defaultValue</div>
             <InputNumber defaultValue={3}/>
-            <div className="tip">指定最大max</div>
+            <div className="tip">指定最大/小值max、min</div>
             <InputNumber max={8} defaultValue={3}/>
+            <InputNumber min={1} defaultValue={2}/>
             <div className="tip">设置步值step</div>
             <InputNumber defaultValue={3} step={3}/>
             <div className="tip">注册change事件</div>
