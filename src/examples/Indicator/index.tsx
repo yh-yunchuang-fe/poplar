@@ -37,6 +37,7 @@ export default class IndicatorDemo extends React.Component<any, any> {
                     text="加载中"
                     style={{
                         flexDirection: 'column',
+                        '-webkit-flex-direction': 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
                         width: '100px',

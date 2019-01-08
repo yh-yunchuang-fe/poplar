@@ -24,6 +24,11 @@
 .@{prefixCls} {
     display: flex;
     align-items: center;
+    justify-content: center;
+    // 兼融iOS8
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
 
     &-loading {
         animation: amRotate .8s linear infinite;

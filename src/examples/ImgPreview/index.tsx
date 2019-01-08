@@ -1,6 +1,6 @@
 import * as React from "react";
-import ImgPreview from "../../components/ImgPreview"
-import Button from "../../components/Button"
+import ImgPreview from "poplar/ImgPreview"
+import Button from "poplar/Button"
 
 
 export default class ImgPreviewDom extends React.Component<any, any> {

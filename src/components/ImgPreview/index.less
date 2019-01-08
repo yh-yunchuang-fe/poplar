@@ -53,12 +53,21 @@
             margin-left: 5px;
         }
 
+        // 兼融iOS8
+        .react-swipeable-view-container {
+            display: flex;
+            display: -webkit-flex;
+        }
 
         .img-wrapper {
-            position: relative;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // 兼融iOS8
+            display: -webkit-flex;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            //width: 100%;
             img {
                 width: 100%;
             }

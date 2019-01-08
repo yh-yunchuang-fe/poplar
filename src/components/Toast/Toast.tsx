@@ -168,6 +168,7 @@ export default class Toast extends React.Component<IToastProps, any> {
             <div className={cls}>
                 <Animation
                     key="toast"
+                    transitionName="yh-zoom"
                     component="div"
                     className={`${prefixCls}-animation-div`}
                 >

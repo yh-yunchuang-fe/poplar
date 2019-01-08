@@ -52,7 +52,16 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
 
         const swipeSty = {
             height: "100%",
-            width: "100%"
+            width: "100%",
+            // display: 'flex',
+            // 'justify-content': 'center',
+            // 'align-items': 'center'
+        }
+
+        const slideSty = {
+            display: 'flex',
+            'justify-content': 'center',
+            'align-items': 'center'
         }
 
         return (
@@ -88,6 +97,7 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
                         resistance
                         containerStyle={swipeSty}
                         style={swipeSty}
+                        slideClassName="img-wrapper"
                         onChangeIndex={(activeIndex: number)=>{
                             onChange(activeIndex, imgUrls)
                         }}
@@ -95,9 +105,7 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
                         {
                             imgUrls.map((cur, index)=>{
                                 return (
-                                    <div className="img-wrapper" key={index}>
-                                        <img src={cur}/>
-                                    </div>
+                                    <img src={cur}  key={index}/>
                                 )
                             })
                         }
