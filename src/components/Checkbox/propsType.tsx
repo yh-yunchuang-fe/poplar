@@ -4,10 +4,11 @@ export default interface ItfCheckProps {
     className?: string;
     prefixCls?: string;
     disabled?: boolean;
+    checked?: boolean;
     onChange?: (x?: any) => void;
     size?: "xxs" | "xs" | "sm" | "md" | "lg";
     color?: string;
     position?: "left" | "right";
     defaultChecked?: boolean;
-    textStyle?: object;
+    // textStyle?: object;
 }

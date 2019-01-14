@@ -5,7 +5,6 @@ import Icon from "../Icon";
 import * as React from "react";
 export default class Checkbox extends React.Component<CheckProps, any> {
     public static defaultProps = {
-        checked: false,
         className: "",
         color: "#FD7622",
         defaultChecked: false,
@@ -15,25 +14,26 @@ export default class Checkbox extends React.Component<CheckProps, any> {
         prefixCls: "yh-checkbox",
         style: {},
         size: "md",
-        textStyle: {}
+        // textStyle: {}
     };
     constructor(props: CheckProps) {
         super(props);
         this.state = {
-            checked: false
+            ischecked: false
         };
     }
     public render() {
         const {
+            // checked,
             children,
             prefixCls,
             position,
             style,
-            textStyle,
+            // textStyle,
             className,
-            defaultChecked,
+            // defaultChecked,
             disabled,
-            onChange,
+            // onChange,
             ...restProps
         } = this.props;
         const wrapCls = {
@@ -56,25 +56,34 @@ export default class Checkbox extends React.Component<CheckProps, any> {
     }
     public handleClick = () => {
 
-        const checked = !this.state.checked;
+        const ischecked = !this.state.ischecked;
         this.setState({
-            checked,
+            ischecked,
         });
         if (this.props.onChange) {
-            this.props.onChange(checked);
+            this.props.onChange(ischecked);
         }
     };
 
-    public componentWillMount() {
+    public componentDidMount() {
         const { defaultChecked } = this.props;
         this.setState({
-            checked: defaultChecked
+            ischecked: defaultChecked
         });
+    }
+    public componentWillReceiveProps(nextProps:CheckProps) {
+        const { checked } = nextProps;
+        if(typeof checked === 'boolean') {
+            this.setState({
+                ischecked: checked,
+            });
+        }
     }
     public renderIcon() {
         const { disabled, color, size, prefixCls, position } = this.props;
-        const icon = this.state.checked ? "select-fill" : "select-normal";
-        const iconColor = this.state.checked ? color : "#DDDDDD";
+        const { ischecked } = this.state
+        const icon = ischecked ? "select-fill" : "select-normal";
+        const iconColor = ischecked ? color : "#DDDDDD";
         const checkCls = {
             [`${prefixCls}-disabled`]: disabled,
             "icon-left": position === "left",
