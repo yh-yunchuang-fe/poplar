@@ -18,8 +18,15 @@ export default class Checkbox extends React.Component<CheckProps, any> {
     };
     constructor(props: CheckProps) {
         super(props);
+        const { checked, defaultChecked } = this.props;
+        let initChecked = false;
+        if (typeof checked === 'boolean') {
+            initChecked = checked;
+        } else {
+            initChecked = defaultChecked;
+        }
         this.state = {
-            ischecked: false
+            checked: initChecked,
         };
     }
     public render() {
@@ -56,34 +63,30 @@ export default class Checkbox extends React.Component<CheckProps, any> {
     }
     public handleClick = () => {
 
-        const ischecked = !this.state.ischecked;
-        this.setState({
-            ischecked,
-        });
+        const checked = !this.state.checked;
+        if(!(typeof this.props.checked === 'boolean')) {
+            this.setState({
+                checked,
+            });
+        }
+      
         if (this.props.onChange) {
-            this.props.onChange(ischecked);
+            this.props.onChange(checked);
         }
     };
-
-    public componentDidMount() {
-        const { defaultChecked } = this.props;
-        this.setState({
-            ischecked: defaultChecked
-        });
-    }
     public componentWillReceiveProps(nextProps:CheckProps) {
         const { checked } = nextProps;
         if(typeof checked === 'boolean') {
             this.setState({
-                ischecked: checked,
+                checked,
             });
         }
     }
     public renderIcon() {
         const { disabled, color, size, prefixCls, position } = this.props;
-        const { ischecked } = this.state
-        const icon = ischecked ? "select-fill" : "select-normal";
-        const iconColor = ischecked ? color : "#DDDDDD";
+        const { checked } = this.state
+        const icon = checked ? "select-fill" : "select-normal";
+        const iconColor = checked ? color : "#DDDDDD";
         const checkCls = {
             [`${prefixCls}-disabled`]: disabled,
             "icon-left": position === "left",
