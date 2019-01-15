@@ -10,7 +10,7 @@
         "start": "gulp -f ./build/gulpfile.js dev",
         "build": "webpack --config ./config/webpack.config.prod.js",
         "build:lib": "gulp -f ./build/gulpfile.js lib:build",
-        "compile": "npm run build:lib"
+        "prepublish": "npm run build:lib"
     },
     "repository": {
         "type": "git",
