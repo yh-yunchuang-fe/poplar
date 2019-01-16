@@ -48,7 +48,7 @@ export default class Button extends React.Component<ButtonProps, any> {
                 aria-disabled={disabled}
                 {...restProps}
             >
-                <span>{children}</span>
+                <span className='text'>{children}</span>
             </a>
         );
     }
