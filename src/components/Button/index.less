@@ -107,7 +107,6 @@
             top: 0;
             width: 200%;
             height: 200%;
-            border: @border-width solid @button-default-color; /*no*/
             -webkit-transform-origin: 0 0;
             -ms-transform-origin: 0 0;
             transform-origin: 0 0;
@@ -117,6 +116,7 @@
             box-sizing: border-box;
             pointer-events: none;
             z-index: -1;
+            border: @border-width solid @button-default-color;/* no */
         }
     }
 
@@ -128,11 +128,11 @@
 
     html:not([data-scale]) .@{buttonPrefixCls}-ghost {
         &:before {
-            border: @border-width solid @button-ghost-color;/*no*/
+            border: @border-width solid @button-ghost-color;/* no */
         }
         &.@{buttonPrefixCls}-disabled {
             &:before {
-                border: @border-width solid rgba(0,0,0,.2);/*no*/
+                border: @border-width solid rgba(0,0,0,.2);/* no */
             }
         }
     }
