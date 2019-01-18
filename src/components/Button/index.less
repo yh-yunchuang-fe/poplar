@@ -47,7 +47,7 @@
         color: @button-primary-text-color;
         background-color: @fill-end;
         background-image: @fill-bg;
-        border: none;
+        border: none;   /*no*/
         &:active {
             box-shadow: 0px 1px 5px 2px @fill-start;
         }
@@ -77,19 +77,19 @@
     &-sm {
         height: @button-height-sm;
         font-size: @font-size-base;
-        line-height: @button-height-sm;
+        line-height: calc(~"(@{button-height-sm} - 2px)");
         border-radius: @button-height-sm;
     }
     &-md {
         height: @button-height-md;
         font-size: @font-size-base;
-        line-height: @button-height-md;
+        line-height: calc(~"(@{button-height-md} - 2px)");
         border-radius: @button-height-md;
     }
     &-lg {
         height: @button-height-lg;
         font-size: @font-size-lg;
-        line-height: @button-height-lg;
+        line-height: calc(~"(@{button-height-lg} - 2px)");
         border-radius: @button-height-lg;
     }
 }
@@ -97,7 +97,7 @@
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
     html:not([data-scale]) .@{buttonPrefixCls} {
         position:relative;
-        border: none;
+        border: none;   /*no*/
         -webkit-transform: translateZ(0);
         background-color: transparent;
         transform: translateZ(0);
