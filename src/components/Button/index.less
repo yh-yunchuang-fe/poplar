@@ -25,13 +25,18 @@
     -webkit-appearance: none;
     box-sizing: border-box;
     padding: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: @font-size-base;
     .text {
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-word;
         white-space: nowrap;
+        display: flex;
+        height: 100%;
+        align-items: center;
     }
     // default
     color: @button-default-color;
@@ -72,24 +77,24 @@
     &-inline {
         display: inline-block;
         padding: 0 @button-h-spacing;
-        // vertical-align: middle;
+        vertical-align: middle;
     }
     &-sm {
         height: @button-height-sm;
         font-size: @font-size-base;
-        line-height: calc(~"(@{button-height-sm} - 2px)");
+        // line-height: calc(~"(@{button-height-sm} - 1px)");
         border-radius: @button-height-sm;
     }
     &-md {
         height: @button-height-md;
         font-size: @font-size-base;
-        line-height: calc(~"(@{button-height-md} - 2px)");
+        // line-height: calc(~"(@{button-height-md} - 1px)");
         border-radius: @button-height-md;
     }
     &-lg {
         height: @button-height-lg;
         font-size: @font-size-lg;
-        line-height: calc(~"(@{button-height-lg} - 2px)");
+        // line-height: calc(~"(@{button-height-lg} - 2px)");
         border-radius: @button-height-lg;
     }
 }
