@@ -41,12 +41,37 @@ export default class Dialog extends React.Component<IDialogProps, any> {
     }
 
     public componentDidMount() {
-        // 解决滚动穿透
+        if (this.props.visible) {
+            this.fixedBody();
+        }
+    }
+
+    public componentWillUnmount() {
+        this.looseBody();
+    }
+
+    public componentDidUpdate(prevProps: IDialogProps) {
+        const props = this.props;
+        if (props.visible) {
+            this.openTime = Date.now();
+        }
+
+        if (props.visible !== prevProps.visible) {
+            if (props.visible) {
+                this.fixedBody();
+            } else {
+                this.looseBody();
+            }
+        }
+    }
+
+    // 解决滚动穿透, 由UI组件统一处理
+    private fixedBody() {
         const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         document.body.style.cssText += 'position:fixed;top:-'+scrollTop+'px;';
     }
 
-    public componentWillUnmount() {
+    private looseBody() {
         const body = document.body;
         body.style.position = '';
         const top = body.style.top;
@@ -54,12 +79,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         body.style.top = '';
     }
 
-    public componentDidUpdate() {
-        const props = this.props;
-        if (props.visible) {
-            this.openTime = Date.now();
-        }
-    }
     getMaskElement() {
         let maskElement = null
         const {
