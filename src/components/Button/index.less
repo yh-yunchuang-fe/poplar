@@ -25,13 +25,18 @@
     -webkit-appearance: none;
     box-sizing: border-box;
     padding: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: @font-size-base;
     .text {
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-word;
         white-space: nowrap;
+        display: flex;
+        height: 100%;
+        align-items: center;
     }
     // default
     color: @button-default-color;
@@ -47,7 +52,7 @@
         color: @button-primary-text-color;
         background-color: @fill-end;
         background-image: @fill-bg;
-        border: none;
+        border: none;   /*no*/
         &:active {
             box-shadow: 0px 1px 5px 2px @fill-start;
         }
@@ -72,24 +77,24 @@
     &-inline {
         display: inline-block;
         padding: 0 @button-h-spacing;
-        // vertical-align: middle;
+        vertical-align: middle;
     }
     &-sm {
         height: @button-height-sm;
         font-size: @font-size-base;
-        line-height: @button-height-sm;
+        // line-height: calc(~"(@{button-height-sm} - 1px)");
         border-radius: @button-height-sm;
     }
     &-md {
         height: @button-height-md;
         font-size: @font-size-base;
-        line-height: @button-height-md;
+        // line-height: calc(~"(@{button-height-md} - 1px)");
         border-radius: @button-height-md;
     }
     &-lg {
         height: @button-height-lg;
         font-size: @font-size-lg;
-        line-height: @button-height-lg;
+        // line-height: calc(~"(@{button-height-lg} - 2px)");
         border-radius: @button-height-lg;
     }
 }
@@ -97,7 +102,7 @@
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
     html:not([data-scale]) .@{buttonPrefixCls} {
         position:relative;
-        border: none;
+        border: none;   /*no*/
         -webkit-transform: translateZ(0);
         background-color: transparent;
         transform: translateZ(0);
@@ -121,6 +126,7 @@
             box-sizing: border-box;
             pointer-events: none;
             z-index: -1;
+            border: @border-width solid @button-default-color;/* no */
         }
     }
 
@@ -138,7 +144,7 @@
         }
         &.@{buttonPrefixCls}-disabled {
             &:before {
-                border: @border-width solid rgba(0,0,0,.2);/*no*/
+                border: @border-width solid rgba(0,0,0,.2);/* no */
             }
         }
     }
