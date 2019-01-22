@@ -40,7 +40,7 @@ gulp.task('lib:style', () => {
     return gulp.src(['../src/components/**/index.less', '../src/components/**/index.css'])
         .pipe(cached('style'))
         .pipe(less())
-        .pipe(postcss())
+        // .pipe(postcss()) // 1px的问题
         .pipe(gulp.dest('../lib'));
 });
 

@@ -126,6 +126,7 @@
             box-sizing: border-box;
             pointer-events: none;
             z-index: -1;
+            border: @border-width solid @button-default-color;/* no */
         }
     }
 
@@ -143,7 +144,7 @@
         }
         &.@{buttonPrefixCls}-disabled {
             &:before {
-                border: @border-width solid rgba(0,0,0,.2);/*no*/
+                border: @border-width solid rgba(0,0,0,.2);/* no */
             }
         }
     }
