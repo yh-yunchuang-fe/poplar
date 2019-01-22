@@ -20,7 +20,6 @@
 @fill-bg: linear-gradient(to right,@fill-start,@fill-end);
 
 .@{buttonPrefixCls} {
-    display: block;
     outline: 0 none;
     -webkit-appearance: none;
     box-sizing: border-box;
@@ -35,7 +34,8 @@
         word-break: break-word;
         white-space: nowrap;
         display: flex;
-        height: 100%;
+        flex-direction: row;
+        height: calc(~"(100% - 2px)");
         align-items: center;
     }
     // default
@@ -104,15 +104,15 @@
         position:relative;
         border: none;   /*no*/
         -webkit-transform: translateZ(0);
-        background-color: transparent;
+        background-color: none;
         transform: translateZ(0);
         &:before {
             content: "";
             position: absolute;
             background-color: @fill-base;
             // width: 200% - 2px;
-            width: calc(~"(200% - 2px)");
-            height: calc(~"(200% - 2px)");;
+            width: calc(~"(200% - 3px)");
+            height: calc(~"(200% - 3px)");
             left: 50%;
             top: 50%;
             border: @border-width solid @button-default-color; /*no*/
@@ -139,7 +139,7 @@
     html:not([data-scale]) .@{buttonPrefixCls}-ghost {
         &:before {
             border: @border-width solid @button-ghost-color;/*no*/
-            background: @fill-base;
+            background-color: @fill-base;
         }
         &.@{buttonPrefixCls}-disabled {
             &:before {

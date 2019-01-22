@@ -89,9 +89,11 @@ export default class InputNumber extends React.Component<InputNumProps, any> {
         const { value } = this.state;
         const icon = "plus-circle";
         let allowPlus = max ? !disabled &&  value < max : !disabled;
+        const iconColor = allowPlus? color:'#ddd';
+
         return (
             <div onClick={allowPlus ? this.handlePlus : undefined}>
-                <Icon name={icon} size={size} color={color} />
+                <Icon name={icon} size={size} color={iconColor} />
             </div>
         );
     }
