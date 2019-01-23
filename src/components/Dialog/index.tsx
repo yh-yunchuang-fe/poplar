@@ -39,21 +39,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
     constructor(props: IDialogProps) {
         super(props);
     }
-
-    public componentDidMount() {
-        // 解决滚动穿透
-        const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        document.body.style.cssText += 'position:fixed;top:-'+scrollTop+'px;';
-    }
-
-    public componentWillUnmount() {
-        const body = document.body;
-        body.style.position = '';
-        const top = body.style.top;
-        document.body.scrollTop = document.documentElement.scrollTop = -parseInt(top);
-        body.style.top = '';
-    }
-
     public componentDidUpdate() {
         const props = this.props;
         if (props.visible) {
