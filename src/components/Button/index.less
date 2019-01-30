@@ -23,20 +23,18 @@
     outline: 0 none;
     -webkit-appearance: none;
     box-sizing: border-box;
-    padding: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: @font-size-base;
+    border-radius: 3em;
     .text {
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-word;
         white-space: nowrap;
-        display: flex;
-        flex-direction: row;
-        height: calc(~"(100% - 2px)");
-        align-items: center;
+        display: table-cell;
+        vertical-align:middle
     }
     // default
     color: @button-default-color;
@@ -44,7 +42,6 @@
     border: @border-width solid @button-default-border-color; /*no*/
 
     &:active {
-        // box-shadow: 0 2px 5px 2px @button-default-border-color;
         transform: translateY(-1px);
     }
 
@@ -61,10 +58,6 @@
         color: @button-ghost-color;
         background: @fill-base;
         border: @border-width solid @button-ghost-color;/*no*/
-        &:active {
-            // color: @color-button;
-            //box-shadow: 0 2px 5px 2px @button-ghost-color;
-        }
     }
     &-disabled {
         opacity: 0.4;
@@ -75,27 +68,21 @@
     }
 
     &-inline {
-        display: inline-block;
+        display: inline-flex;
         padding: 0 @button-h-spacing;
         vertical-align: middle;
     }
     &-sm {
         height: @button-height-sm;
         font-size: @font-size-base;
-        // line-height: calc(~"(@{button-height-sm} - 1px)");
-        border-radius: @button-height-sm;
     }
     &-md {
         height: @button-height-md;
         font-size: @font-size-base;
-        // line-height: calc(~"(@{button-height-md} - 1px)");
-        border-radius: @button-height-md;
     }
     &-lg {
         height: @button-height-lg;
         font-size: @font-size-lg;
-        // line-height: calc(~"(@{button-height-lg} - 2px)");
-        border-radius: @button-height-lg;
     }
 }
 
@@ -104,15 +91,12 @@
         position:relative;
         border: none;   /*no*/
         -webkit-transform: translateZ(0);
-        background-color: none;
         transform: translateZ(0);
         &:before {
             content: "";
             position: absolute;
-            background-color: @fill-base;
-            // width: 200% - 2px;
-            width: calc(~"(200% - 3px)");
-            height: calc(~"(200% - 3px)");
+            width: calc(~"(200% - 2px)");
+            height: calc(~"(200% - 2px)");
             left: 50%;
             top: 50%;
             border: @border-width solid @button-default-color; /*no*/
@@ -133,36 +117,17 @@
     html:not([data-scale]) .@{buttonPrefixCls}-primary {
         &:before {
             border: none;/*no*/
-            background-color: @fill-end;
         }
     }
 
     html:not([data-scale]) .@{buttonPrefixCls}-ghost {
         &:before {
             border: @border-width solid @button-ghost-color;/*no*/
-            background-color: @fill-base;
         }
         &.@{buttonPrefixCls}-disabled {
             &:before {
                 border: @border-width solid rgba(0,0,0,.2);/* no */
             }
-        }
-    }
-
-    // size
-    html:not([data-scale]) .@{buttonPrefixCls}-sm {
-        &:before {
-            border-radius: 3em;
-        }
-    }
-    html:not([data-scale]) .@{buttonPrefixCls}-md {
-        &:before {
-            border-radius: 3em;
-        }
-    }
-    html:not([data-scale]) .@{buttonPrefixCls}-lg {
-        &:before {
-            border-radius: 3em;
         }
     }
 }
