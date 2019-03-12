@@ -11,6 +11,7 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
         prefixCls: "yh-imgpreview",
         index: 0,
         deleteIcon: false,
+        closeBtn: false,
         visible: false,
         onClose: () => {},
         onDelete: () => {},
@@ -47,8 +48,12 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
         }
     }
 
+    private cancelBubble = (event: any) => {
+        event.stopPropagation()
+    }
+
     public render() {
-        const { index, prefixCls, visible, deleteIcon, imgUrls, onClose, onDelete, onChange } = this.props
+        const { index, prefixCls, visible, deleteIcon, imgUrls, onClose, onDelete, onChange, closeBtn } = this.props
 
         const swipeSty = {
             height: "100%",
@@ -74,23 +79,38 @@ export default class ImgPreview extends React.PureComponent<IImgPreviewProps, an
                     className={`${prefixCls}-content`}
                     onClick={onClose}
                 >
-                    <div className="pagination">
-                        <span className="current-page">{index + 1}</span>
-                        /
-                        <span className="total-page">{imgUrls.length}</span>
-                    </div>
-
-                    {!deleteIcon ? null
-                        :<div className="btn-delete"
-                              onClick={(e)=>{
-                                  onDelete(index, imgUrls)
-                                  e.stopPropagation();
-                                  return false;
-                              }}>
-                            <Icon name="delete"/>
+                    <div
+                        className={`${prefixCls}-toolbar`}
+                        onClick={this.cancelBubble}
+                    >
+                        {
+                            closeBtn ? (
+                                <span
+                                    onClick={onClose}
+                                    className={`${prefixCls}-close-btn`}
+                                >关闭</span>
+                            ) : null
+                        }
+                        <div className={`${prefixCls}-pagination`}>
+                            <span>{index + 1}</span>
+                            /
+                            <span>{imgUrls.length}</span>
                         </div>
-                    }
-
+                        {
+                            deleteIcon ? (
+                                <div
+                                    onClick={(e) => {
+                                        onDelete(index, imgUrls)
+                                        e.stopPropagation();
+                                        return false;
+                                    }}
+                                    className={`${prefixCls}-delete-btn`}
+                                >
+                                    <Icon name="delete" />
+                                </div>
+                            ) : null
+                        }
+                    </div>
 
                     <SwipeableViews
                         index={index}
