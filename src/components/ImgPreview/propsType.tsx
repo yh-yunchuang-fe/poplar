@@ -1,4 +1,5 @@
 export default interface IImgPreviewProps {
+    closeBtn?: boolean;
     deleteIcon?: boolean;
     prefixCls?: string;
     visible: boolean;

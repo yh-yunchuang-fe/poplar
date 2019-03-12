@@ -12,7 +12,8 @@ export default class ImgPreviewDom extends React.Component<any, any> {
             imgUrls: [
                 "https://avatars3.githubusercontent.com/u/7664160?s=460&v=4",
                 "https://avatars3.githubusercontent.com/u/7869311?s=460&v=4",
-                "https://avatars0.githubusercontent.com/u/2757932?s=460&v=4"
+                "https://avatars0.githubusercontent.com/u/2757932?s=460&v=4",
+                "https://i.loli.net/2019/03/12/5c877b5134c57.jpg",
             ]
         }
     }
@@ -32,6 +33,7 @@ export default class ImgPreviewDom extends React.Component<any, any> {
                     imgUrls={imgUrls}
                     index={index}
                     deleteIcon={true}
+                    closeBtn={true}
                     onChange={(index) => {
                         this.setState({ index })
                     }}
