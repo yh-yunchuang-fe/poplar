@@ -1,6 +1,6 @@
 {
     "name": "yh-poplar",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "description": "永辉生活C端H5组件库",
     "main": "index.js",
     "scripts": {
