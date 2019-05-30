@@ -83,6 +83,12 @@ export default class Icon extends React.Component<IconProps, any> {
             "spread",
             "stowing-rampl",
             "switch",
+            "cart",
+            "add-to-shopping-cart",
+            "cart-active",
+            "cart-normal",
+            "cart-scan",
+            "cart-wide",
         ];
         const {
             children,

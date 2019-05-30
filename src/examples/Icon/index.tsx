@@ -70,6 +70,12 @@ export default class IconDemo extends React.Component<any, any> {
             "spread",
             "stowing-rampl",
             "switch",
+            "cart",
+            "add-to-shopping-cart",
+            "cart-active",
+            "cart-normal",
+            "cart-scan",
+            "cart-wide",
         ];
         return iconMap.map((name, idx) => {
             return (
