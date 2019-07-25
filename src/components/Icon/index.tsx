@@ -91,6 +91,7 @@ export default class Icon extends React.Component<IconProps, any> {
             "cart-wide",
             "huabi",
             "tijiaochenggong",
+            "pingjia",
         ];
         const {
             children,
