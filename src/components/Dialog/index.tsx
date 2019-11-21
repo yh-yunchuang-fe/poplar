@@ -103,7 +103,6 @@ export default class Dialog extends React.Component<IDialogProps, any> {
                     <LazyRenderBox
                         key="dialog-element"
                         role="document"
-                        ref="dialog"
                         style={style}
                         className={`${prefixCls} ${className || ""}`}
                     >
@@ -168,10 +167,9 @@ export default class Dialog extends React.Component<IDialogProps, any> {
         const transitionName = this.getTransitionName()
         const modalRoot = document.getElementById('modal-root')
         const node = (
-            <div ref="dialog-wrapper">
+            <div>
                 {this.getMaskElement()}
                 <Animation
-                    ref="dialog-animation"
                     key="dialog-animation"
                     transitionName={transitionName}
                     transitionEnterTimeout={props.transitionTimeout}

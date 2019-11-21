@@ -78,6 +78,8 @@ export default class IconDemo extends React.Component<any, any> {
             "cart-wide",
             "huabi",
             "tijiaochenggong",
+            "pingjia",
+            "big-arrows-down",
         ];
         return iconMap.map((name, idx) => {
             return (
