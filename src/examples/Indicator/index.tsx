@@ -14,10 +14,11 @@ export default class IndicatorDemo extends React.Component<any, any> {
                     size="lg"
                 />
                 <Indicator
+                    color="orange"
                     size="xl"
                 />
                 <Indicator
-                    color="blue"
+                    color="gray"
                 />
                 <Indicator
                     color="white"
