@@ -2,7 +2,7 @@ import * as React from "react";
 
 export default interface IIndicatorProps {
     size?: 'xl' | 'lg' | 'md' | 'sm';
-    color?: 'blue' | 'white';
+    color?: string;
     className?: string;
     style?: React.CSSProperties;
     textStyle?: React.CSSProperties;
