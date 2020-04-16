@@ -15,9 +15,9 @@
 @button-primary-text-color: #fff;
 // primary 按钮
 
-@fill-start: #FFAE47;                   // UI库的基本色
-@fill-end: #FD7622;
-@fill-bg: linear-gradient(to right,@fill-start,@fill-end);
+@fill-start: #FFA133;                   // UI库的基本色
+@fill-end: #F75E1D;
+@fill-bg: linear-gradient(90deg,@fill-start 0%,@fill-end 100%);
 
 .@{buttonPrefixCls} {
     outline: 0 none;
@@ -51,7 +51,7 @@
         background-image: @fill-bg;
         border: none;   /*no*/
         &:active {
-            box-shadow: 0px 1px 5px 2px @fill-start;
+            // box-shadow: 0px 1px 5px 2px @fill-start;
         }
     }
     &-ghost {
