@@ -42,7 +42,7 @@ export default class Modal extends React.Component<IModalProps, any> {
         if (footer && footer.length) {
             if (footer.length === 1) {
 
-                const { text, type, onPress } = footer[0] as IButtonProps;
+                const { text, type, color, onPress } = footer[0] as IButtonProps;
                 const onClickFn = function(e:any) {
                     e.preventDefault();
                     if (onPress) {
@@ -54,7 +54,7 @@ export default class Modal extends React.Component<IModalProps, any> {
 
                 footerDom = (
                     <div className={btnGroupClass}>
-                        <a href="javascript:;" className={`${prefixCls}-button ${btnCls}`} role="button" onClick={onClickFn}>
+                        <a href="javascript:;" className={`${prefixCls}-button ${btnCls}`} role="button" style={ { color } } onClick={onClickFn}>
                             {text || 'Button'}
                         </a>
                     </div>
@@ -62,7 +62,7 @@ export default class Modal extends React.Component<IModalProps, any> {
             } else if (footer.length === 2) {
 
                 const buttons = footer.map((button, idx) => {
-                    const { text, type, onPress } = button as IButtonProps;
+                    const { text, type, color, onPress } = button as IButtonProps;
                     const onClickFn = function(e:any) {
                         e.preventDefault();
                         if (onPress) {
@@ -73,7 +73,7 @@ export default class Modal extends React.Component<IModalProps, any> {
                     let btnCls = type || "primary"
                     let secondCls = idx === 0 ? '' : 'btn-second'
                     return (
-                        <a key={idx} href="javascript:;" className={`${prefixCls}-button ${btnCls} ${secondCls}`} role="button" onClick={onClickFn}>
+                        <a key={idx} href="javascript:;" className={`${prefixCls}-button ${btnCls} ${secondCls}`} role="button" style={ { color } } onClick={onClickFn}>
                             {text || 'Button'}
                         </a>
                     )

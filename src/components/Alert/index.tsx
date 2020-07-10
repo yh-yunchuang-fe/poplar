@@ -7,6 +7,7 @@ import Modal from '../Modal'
 
 export interface IButtonProps {
     text: string;
+    color?: string;
     type?: 'primary' | 'default'
     onPress?: any;
 }

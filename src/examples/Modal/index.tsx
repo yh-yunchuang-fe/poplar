@@ -19,7 +19,7 @@ export default class ModalDemo extends React.Component<any, any> {
     openAlert = () => {
         alert('', '你确定吗？', [
             { text: '暂不', onPress: () => console.log('cancel') },
-            { text: '确认', onPress: () => console.log('ok') },
+            { text: '确认', color: 'red', onPress: () => console.log('ok') },
         ])
     }
 
