@@ -94,6 +94,7 @@ export default class Modal extends React.Component<IModalProps, any> {
                 {footerDom}
             </div>
         )
+
     }
 
 

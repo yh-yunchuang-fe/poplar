@@ -1,8 +1,0 @@
-idea/
-build/
-config/
-src/
-postcss.config.js
-tsconfig.json
-tslint.json
-.editorconfig
