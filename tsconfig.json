@@ -1,25 +1,17 @@
+
 {
   "compilerOptions": {
-    "outDir": "build/lib",
-    "module": "commonjs",
+    "baseUrl": ".",
+    "noImplicitAny": true,
+    "module": "es6",
     "target": "es5",
-    "lib": ["es5", "es6", "es7", "es2017", "dom"],
-    "sourceMap": true,
-    "allowJs": false,
     "jsx": "react",
+    "allowJs": false,
     "moduleResolution": "node",
-    "rootDir": "src",
-    "baseUrl": "src",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "build", "scripts"]
+    "paths": {
+      "poplar/*": [
+        "lib/*"
+      ]
+    }
+  }
 }

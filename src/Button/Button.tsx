@@ -1,3 +1,4 @@
+// @ts-ignore
 import React from "react"
 
 type BTProps = { bg: string; children: React.ReactNode }
