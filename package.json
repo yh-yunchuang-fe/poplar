@@ -24,10 +24,12 @@
     "@types/classnames": "^2.2.11",
     "@types/react-addons-css-transition-group": "^15.0.5",
     "@types/react-dom": "^16.9.9",
+    "@types/react-swipeable-views": "^0.13.0",
     "classnames": "^2.2.6",
     "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-swipeable-views": "^0.13.9"
   },
   "scripts": {
     "start": "yarn storybook",
