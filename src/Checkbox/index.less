@@ -1,0 +1,20 @@
+@import "../../assets/css/default.less";
+@import "../../assets/css/mixins.less";
+@iconPrefixCls: yh-checkbox;
+.@{iconPrefixCls} {
+    &-disabled {
+        opacity: 0.4;
+    }
+}
+.check-container{
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.icon-left{
+    margin-right: 10px;
+}
+.icon-right{
+    margin-left: 10px;
+}

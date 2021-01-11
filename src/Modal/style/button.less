@@ -1,0 +1,50 @@
+.@{modalPrefixClass} {
+    .button-common() {
+        box-sizing: border-box;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: @modal-button-color;
+        font-size: @modal-button-font-size;
+        height: @modal-button-height;
+        line-height: @modal-button-height;
+        display: block;
+        .ellipsis()
+    }
+
+    &-button-group-h {
+        border-top: @border-width solid @modal-footer-border-color; /* no */
+        display: flex;
+        .@{modalPrefixClass}-button {
+            -webkit-touch-callout: none;
+            flex: 1;
+            .button-common();
+
+            &.primary {
+                 color: @color-primary;
+             }
+
+            &.default {
+                color: @modal-button-color;
+            }
+
+            &.btn-second {
+                border-left: @border-width solid @modal-footer-border-color; /* no */
+            }
+        }
+    }
+
+    //&-button-group-v {
+    //    .@{modalPrefixClass}-button {
+    //        -webkit-touch-callout: none;
+    //        display: block;
+    //        border-top: @border-width solid @modal-footer-border-color; /* no */
+    //        .button-common();
+    //    }
+    //}
+
+    &-button-active {
+      background-color: #bbb;
+    }
+
+}

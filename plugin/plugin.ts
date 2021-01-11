@@ -1,0 +1,1 @@
+import { IApi } from 'dumi';

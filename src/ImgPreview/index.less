@@ -1,0 +1,79 @@
+
+@prefixCls: yh-imgpreview;
+
+.@{prefixCls} {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+
+    &-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        // 兼融iOS8
+        .react-swipeable-view-container {
+            display: flex;
+            display: -webkit-flex;
+        }
+
+        .img-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // 兼融iOS8
+            display: -webkit-flex;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            //width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+
+    }
+
+    &-toolbar {
+        background-color: rgba(0, 0, 0, 0.75);
+        height: 58px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        color: #fff;
+        font-size: 16px;
+        z-index: 10;
+    }
+
+    &-pagination {
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 58px;
+        line-height: 58px;
+        font-size: 16px;
+    }
+
+    &-close-btn {
+        position: absolute;
+        left: 15px;
+        top: 0;
+        height: 58px;
+        line-height: 58px;
+        z-index: 11;
+    }
+
+    &-delete-btn {
+        position: absolute;
+        right: 15px;
+        top: 0;
+        height: 58px;
+        line-height: 58px;
+        z-index: 11;
+    }
+}
