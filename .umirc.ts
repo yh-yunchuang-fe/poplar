@@ -6,6 +6,7 @@ export default defineConfig({
   logo: '/assets/images/logo.png',
   description: '好用好玩的h5组件库',
   outputPath: 'docs-dist',
+  plugins: ['./plugin/plugin.ts'],
   copy: [{
     from: 'assets/images',
     to: 'assets/images'
