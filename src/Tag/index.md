@@ -1,36 +1,51 @@
 # Tag
+
 ## 引入
+
 ```
-import { Tag } from 'toy-poplar' 
+import { Tag } from 'poplar'
 ```
 
 ## 使用方法
-### 基础tag
+
+### 基础 tag
+
 ```
 <Tag>基础 tag</Tag>
 ```
 
 ### primary tag
+
 ```
 <Tag type="primary">primary tag</Tag>
 ```
+
 ### large tag
+
 ```
 <Tag type="primary">primary tag</Tag>
 ```
+
 ### 自定义填充色
+
 ```
 <Tag fill="yellowgreen">自定义填充色</Tag>
 ```
+
 ### 自定义字体颜色
+
 ```
 <Tag color="yellowgreen">自定义字体颜色</Tag>
 ```
-### 可选择tag
+
+### 可选择 tag
+
 ```
 <Tag checkable={true} activeType="primary">可选择tag</Tag>
 ```
-### 可控可选择Tag
+
+### 可控可选择 Tag
+
 ```
 <Tag
     checkable={true}
@@ -45,7 +60,8 @@ import { Tag } from 'toy-poplar'
 >可控的可选择tag</Tag>
 ```
 
-### 自定义activeColor, activeFill
+### 自定义 activeColor, activeFill
+
 ```
 <Tag
     checkable={true}
@@ -54,9 +70,9 @@ import { Tag } from 'toy-poplar'
 >自定义activeColor, activeFill</Tag>
 ```
 
+<API></API>
+
 ## 使用示例
 
 <code
 src="../../examples/Tag/index.tsx" id="Tag-demo-example" defaultShowCode={true} compact={true}></code>
-
-

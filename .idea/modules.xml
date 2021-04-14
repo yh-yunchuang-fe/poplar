@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dumi-poplar.iml" filepath="$PROJECT_DIR$/.idea/dumi-poplar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/poplar.iml" filepath="$PROJECT_DIR$/.idea/poplar.iml" />
     </modules>
   </component>
 </project>
