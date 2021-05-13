@@ -9,7 +9,7 @@ import {
     IShowToastOptions,
 } from "./propsType";
 
-const TRANSITION_DURATION = 200;
+const TRANSITION_DURATION = 300;
 
 const show = (content: ShowContent, options: IShowToastOptions = {}) => {
     const {
@@ -116,7 +116,7 @@ export default {
     hide(div: any) {
         // TODO: toast去除DOM操作
         const toast = div.querySelector(".yh-toast-inner-container");
-        toast.classList.add("yh-zoom-leave", "yh-zoom-leave-active");
+        // toast.classList.add("yh-zoom-leave", "yh-zoom-leave-active");
         setTimeout(() => {
             ReactDOM.unmountComponentAtNode(div);
         }, TRANSITION_DURATION);

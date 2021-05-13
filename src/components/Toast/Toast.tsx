@@ -9,12 +9,12 @@ import Icon from "../Icon";
 import { IToastProps } from "./propsType";
 import "./styles/index.less";
 
-const TRANSITION_DURATION = 200;
+const TRANSITION_DURATION = 300;
 
 export default class Toast extends React.Component<IToastProps, any> {
     static defaultProps = {
         prefixCls: "yh-toast",
-        duration: 2000,
+        duration: 1500,
         animationEnd: () => {},
         onClose: () => {},
         position: "center",
@@ -45,7 +45,7 @@ export default class Toast extends React.Component<IToastProps, any> {
         const { prefixCls } = this.props;
         // TODO: toast去除DOM操作
         const toast = document.querySelector(`.${prefixCls}-inner-container`);
-        toast.classList.add("yh-zoom-leave", "yh-zoom-leave-active");
+        // toast.classList.add("yh-zoom-leave", "yh-zoom-leave-active");
         setTimeout(() => {
             this.props.onClose();
             cb();
@@ -164,11 +164,14 @@ export default class Toast extends React.Component<IToastProps, any> {
             position === "center" ? `${prefixCls}-center` : null,
             mask ? `${prefixCls}-mask` : null,
         );
-        return (
+        return (            
             <div className={cls}>
                 <Animation
                     key="toast"
-                    transitionName="yh-zoom"
+                    transitionName="yh-fade"
+                    transitionEnterTimeout={TRANSITION_DURATION}
+                    transitionAppearTimeout={TRANSITION_DURATION}
+                    transitionLeaveTimeout={TRANSITION_DURATION}
                     component="div"
                     className={`${prefixCls}-animation-div`}
                 >
