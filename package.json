@@ -1,6 +1,6 @@
 {
     "name": "yh-poplar",
-    "version": "1.0.17",
+    "version": "1.0.22",
     "description": "永辉生活C端H5组件库",
     "main": "index.js",
     "scripts": {
@@ -53,6 +53,7 @@
         "husky": "^1.2.1",
         "less": "^3.9.0",
         "less-loader": "^4.1.0",
+        "lottie-web": "^5.7.1",
         "lint-staged": "^8.1.0",
         "merge2": "^1.2.3",
         "mini-css-extract-plugin": "^0.5.0",
