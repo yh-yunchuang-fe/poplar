@@ -17,11 +17,9 @@ export default class Popup extends React.Component<IPopupProps, any> {
 
     render() {
         let { prefixCls, position, maskStyle, wrapStyle, children, style, className, ...restProps } = this.props
-
-        style = {...style, position: position }
-        maskStyle = {...maskStyle, position: position}
-        wrapStyle = {...wrapStyle, position: position}
-
+        style = { ...style, position: position }
+        maskStyle = { ...maskStyle, position: position }
+        wrapStyle = { ...wrapStyle, position: position }
         const cls = classNames({
             [prefixCls]: true,
             [className]: className
@@ -37,8 +35,17 @@ export default class Popup extends React.Component<IPopupProps, any> {
                 style={style}
                 {...restProps}
             >
-                { children }
+                {children}
             </Dialog>
         )
     }
+    shouldComponentUpdate(nextProps: IPopupProps) {
+        if (this.props.visible !== nextProps.visible) {
+            let bodys = document.getElementsByTagName('body')
+            if (bodys.length) {
+                bodys[0].style.overflow = nextProps.visible ? 'hidden' : 'visible';
+            }
+        }
+        return this.props !== nextProps
+    };
 }
