@@ -18,6 +18,7 @@ import Tag from "../Tag";
 import Indicator from "../Indicator";
 import Toast from "../Toast";
 import GloabelLoading from '../GloabelLoading'
+import loading from '../loading'
 interface IRoute {
     path: string;
     component: React.ComponentType;
@@ -73,6 +74,10 @@ const routes: IRoute[] = [
         component: GloabelLoading,
         name: "GloabelLoading",
         path: "/GloabelLoading",
+    },{
+        component: loading,
+        name: "loading",
+        path: "/loading",
     }
 ];
 
