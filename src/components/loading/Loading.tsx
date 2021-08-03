@@ -11,7 +11,6 @@ import './index.less'
 export default class Toast extends React.Component<IToastProps, any> {
     static defaultProps = {
         prefixCls: "yh-toast",
-        onClose: () => {},
     };
 
     ownIcon = false;
@@ -27,16 +26,6 @@ export default class Toast extends React.Component<IToastProps, any> {
         })  
     }
 
-    onClose = (cb: () => void) => {
-        const { prefixCls } = this.props;
-        // TODO: toast去除DOM操作
-        const loading = document.querySelector(`.${prefixCls}-inner-container`);
-        loading.classList.add("yh-zoom-leave", "yh-zoom-leave-active");
-        setTimeout(() => {
-            this.props.onClose();
-            cb();
-        }, TRANSITION_DURATION);
-    }; 
     render() {
         const {
             prefixCls,

@@ -1,5 +1,3 @@
-@import "./variables.less";
-
 @prefixCls: yh-toast;
 
 .@{prefixCls} {
@@ -13,12 +11,12 @@
         justify-content: center;
         align-items: center;
         pointer-events: none;
-        z-index: @toast-z-index;
+        z-index: 1000;
     }
 
     &-inner-container {
         background-color: rgba(0, 0, 0, .8);
-        border-radius: @radius;
+        border-radius: 4px;
         padding: 8px 10px;
         display: flex;
         flex-direction: column;
@@ -27,10 +25,6 @@
         min-width: 90px;
     }
 
-    &-icon-container {
-        padding-top: 10px;
-        padding-bottom: 8px;
-    }
 
     &-text-container {
         display: flex;
@@ -39,18 +33,6 @@
         align-items: center;
     }
 
-    &-own-icon {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-bottom: 4px;
-    }
-
-    &-content-text {
-        color: #fff;
-        font-size: 14px;
-        line-height: 20px;
-        text-align: center;
-    }
 
     &-top {
         position: absolute;
