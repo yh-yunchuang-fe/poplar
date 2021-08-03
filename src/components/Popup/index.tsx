@@ -40,12 +40,17 @@ export default class Popup extends React.Component<IPopupProps, any> {
         )
     }
     shouldComponentUpdate(nextProps: IPopupProps) {
+        let bodys = document.getElementsByTagName('body')
         if (this.props.visible !== nextProps.visible) {
-            let bodys = document.getElementsByTagName('body')
+            console.log("弹窗弹出，禁止body滚动")
             if (bodys.length) {
-                bodys[0].style.overflow = nextProps.visible ? 'hidden' : 'visible';
+                bodys[0].style.overflow = nextProps.visible ? 'hidden' : 'visible'
             }
         }
         return this.props !== nextProps
-    };
+    }
+    componentWillUnmount(){
+        let bodys = document.getElementsByTagName('body')
+        bodys[0].style.overflow = 'visible'
+    }
 }
