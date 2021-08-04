@@ -1,13 +1,9 @@
 import * as React from "react";
 import Animation from "../Animation";
 import { IToastProps } from "./propsType";
-import "./styles/index.less";
+import "./index.less";
 import lottie from 'lottie-web'
 import dataJson from "./data"
-const TRANSITION_DURATION = 200;
-import './index.less'
-
-
 export default class Toast extends React.Component<IToastProps, any> {
     static defaultProps = {
         prefixCls: "yh-toast",
@@ -40,7 +36,7 @@ export default class Toast extends React.Component<IToastProps, any> {
                     className={`${prefixCls}-animation-div`}
                 >
                     <div className="loading-wrapper" ref={this.loadingAnimation}>
-                    </div>    
+                    </div>
                 </Animation>
                 </div>
             </div>

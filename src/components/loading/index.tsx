@@ -1,13 +1,9 @@
-/**
- * Created by beilunyang on 2018/8/31
- */
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import Loading from "./Loading";
 import {
     IShowToastOptions,
 } from "./propsType";
-
 
 const show = (options: IShowToastOptions = {}) => {
     const {
@@ -32,9 +28,6 @@ export default {
         });
     },
     hide(div: any) {
-        // TODO: toast去除DOM操作
-        const loading = div.querySelector(".loading-mask");
-        loading.classList.add("yh-zoom-leave", "yh-zoom-leave-active");
         ReactDOM.unmountComponentAtNode(div);
     },
     show,
