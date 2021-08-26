@@ -17,7 +17,6 @@ import ImgPreview from "../ImgPreview";
 import Tag from "../Tag";
 import Indicator from "../Indicator";
 import Toast from "../Toast";
-import GloabelLoading from '../GloabelLoading'
 import loading from '../loading'
 interface IRoute {
     path: string;
@@ -70,10 +69,6 @@ const routes: IRoute[] = [
         component: Toast,
         name: "Toast",
         path: "/Toast",
-    },{
-        component: GloabelLoading,
-        name: "GloabelLoading",
-        path: "/GloabelLoading",
     },{
         component: loading,
         name: "loading",
