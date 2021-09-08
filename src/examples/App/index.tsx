@@ -17,7 +17,7 @@ import ImgPreview from "../ImgPreview";
 import Tag from "../Tag";
 import Indicator from "../Indicator";
 import Toast from "../Toast";
-
+import loading from '../loading'
 interface IRoute {
     path: string;
     component: React.ComponentType;
@@ -69,7 +69,11 @@ const routes: IRoute[] = [
         component: Toast,
         name: "Toast",
         path: "/Toast",
-    },
+    },{
+        component: loading,
+        name: "loading",
+        path: "/loading",
+    }
 ];
 
 class App extends React.PureComponent<any, any> {
